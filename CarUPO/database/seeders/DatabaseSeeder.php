@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+
 use Database\Factories\UserFactory;
 use Illuminate\Database\Seeder;
 
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserSeeder::class);
+        // Solo creo uso el seeder del carrito, ya que nos genera un carrito con su usuario.
+        $this->call(Carrito_compraSeeder::class);
     }
 }
