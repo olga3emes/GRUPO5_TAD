@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
+
+
 class UserFactory extends Factory
 {
     /**
@@ -18,10 +20,16 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'dni' => $this->faker->unique()->regexify('/\d{8}[A-Z]/'),
+            'name' => $this->faker->name(),
+            'surname' => $this->faker->lastName(),
+            'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            # Comentado, esto generá formato numeros de telefonos de manera internacional.
+            #'phone' => $this->faker->optional()->phoneNumber(),
+            'phone' => $this->faker->optional()->numerify('#########'),
+            'password' => bcrypt('password'),
+            'admin' => false,
             'remember_token' => Str::random(10),
         ];
     }
@@ -35,6 +43,18 @@ class UserFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
+        ]);
+    }
+
+    /**
+     * Define the "admin" state for the model.
+     *
+     * @return static
+     */
+    public function admin()
+    {
+        return $this->state(fn (array $attributes) => [
+            'admin' => true,
         ]);
     }
 }
