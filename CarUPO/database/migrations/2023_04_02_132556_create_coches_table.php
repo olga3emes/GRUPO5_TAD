@@ -4,11 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCocheTable extends Migration
+return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
-        Schema::create('coche', function (Blueprint $table) {
+        Schema::create('coches', function (Blueprint $table) {
             $table->id();
             $table->string('marca');
             $table->string('modelo');
@@ -17,13 +22,18 @@ class CreateCocheTable extends Migration
             $table->float('cilindrada');
             $table->float('potencia');
             $table->integer('nPuertas');
-            $table->foreignId('fk_producto_id')->references('id')->on('producto')->onDelete('restrict');
+            $table->foreignId('fk_producto_id')->references('id')->on('productos')->onDelete('restrict');
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('coche');
+        Schema::dropIfExists('coches');
     }
-}
+};
