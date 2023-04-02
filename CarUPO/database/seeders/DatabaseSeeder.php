@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Solo creo uso el seeder del carrito, ya que nos genera un carrito con su usuario.
+
+# Creo unos 10 
+        $this->call(UserSeeder::class);
         $this->call(Carrito_compraSeeder::class);
     }
 }

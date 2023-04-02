@@ -13,9 +13,7 @@ class Carrito_compraFactory extends Factory
     public function definition()
     {
         return [
-            'fk_user' => function () {
-                return User::factory()->create()->id;
-            },
+            'fk_user' => User::factory(),
             'precio_total' => 0,
         ];
     }
