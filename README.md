@@ -8,7 +8,7 @@
 * Ejecutar en la raiz del proyecto: composer install
 * Copiar .env.example con el nombre .env
 * Ejecutar en la raiz del proyecto: php artisan key:generate
-* Crear la base de datos "CREATE DATABASE tu_base_de_datos;"
+* Crear la base de datos "CREATE DATABASE carupo;"
 * Indicar el nombre de la base de datos en el .env
 * Ejecutar en la raiz del proyecto: php artisan migrate:fresh
-* Ejecutar en la raiz del proyecto: php artisan migrate --seed
+* Ejecutar en la raiz del proyecto: php artisan migrate:fresh --seed
