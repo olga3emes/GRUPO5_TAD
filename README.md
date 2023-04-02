@@ -10,5 +10,4 @@
 * Ejecutar en la raiz del proyecto: php artisan key:generate
 * Crear la base de datos "CREATE DATABASE carupo;"
 * Indicar el nombre de la base de datos en el .env
-* Ejecutar en la raiz del proyecto: php artisan migrate:fresh
 * Ejecutar en la raiz del proyecto: php artisan migrate:fresh --seed
