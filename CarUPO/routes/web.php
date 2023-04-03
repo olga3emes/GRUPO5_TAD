@@ -26,3 +26,10 @@ use App\Http\Controllers\UsersController;
 
 // Todas las redirecciones se controlan en la clase de app/models/PagesController
 Route::get('/', [PagesController::class, 'inicio'])->name('inicio');
+
+
+
+// Es como viene por defecto, no tocar por el momento
+Route::get('/home', function () {
+    return view('auth.dashboard');
+})->middleware(['auth', 'verified']);
