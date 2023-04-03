@@ -25,4 +25,4 @@ use App\Http\Controllers\UsersController;
 
 
 // Todas las redirecciones se controlan en la clase de app/models/PagesController
-Route::get('/', [PagesController::class, 'inicio'])->name('inicio');
+Route::get('/', [ProductosController::class, 'mostrarProductos'])->name('verMostrarProductos');
