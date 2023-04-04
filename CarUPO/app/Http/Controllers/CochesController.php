@@ -8,12 +8,31 @@ use Illuminate\Http\Request;
 
 class CochesController extends Controller
 {
+
+    public function procesar(Request $request){
+        // Comprobar si se ha seleccionado una imagen
+        if($request->hasFile('foto')){
+            $allowed_extensions = array("jpg", "jpeg", "png", "gif");
+            $extension = $request->file('imagen')->getClientOriginalExtension();
+            if(in_array($extension, $allowed_extensions)){
+                // Mover la imagen a una ubicación en el servidor
+                $path = $request->file('imagen')->store('images');
+                return "La imagen se ha subido correctamente.";
+            }else{
+                return "Error: El tipo de archivo no está permitido.";
+            }
+        }else{
+            return "Error: No se ha seleccionado ninguna imagen.";
+        }
+    }
+
     public function crearCoche(Request $request)
     {
 
         $producto = new Producto();
         $producto->descripcion = $request->descripcion;
-        $producto->foto = $request->foto;
+        $ruta = $this->procesar($request);
+        $producto->foto = $ruta;
         $producto->precio = $request->precio;
         $producto->save();
         $coche = new Coche();
@@ -26,7 +45,7 @@ class CochesController extends Controller
         $coche->nPuertas = $request->nPuertas;
         $coche->fk_producto_id = $producto->id;
         $coche->save();
-        return back()->with('mensaje', 'Coche creado');
+        return app()->make(ProductosController::class)->callAction('mostrarProductos', []);
     }
 
     public function verBorrarCoche(Request $request)
