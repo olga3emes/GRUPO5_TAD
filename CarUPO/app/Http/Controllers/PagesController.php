@@ -8,6 +8,11 @@ class PagesController extends Controller
 {
     public function inicio()
     {
-        return view('welcome');
+        return view('comienzo');
+    }
+
+    public function crearCoche()
+    {
+        return view('crearCoche');
     }
 }
