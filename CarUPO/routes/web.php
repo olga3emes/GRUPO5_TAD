@@ -25,4 +25,17 @@ use App\Http\Controllers\UsersController;
 
 
 // Todas las redirecciones se controlan en la clase de app/models/PagesController
-Route::get('/', [PagesController::class, 'inicio'])->name('inicio');
+
+//PRODUCTOS
+Route::get('/', [ProductosController::class, 'mostrarProductos'])->name('mostrarProductos');
+
+//COCHES
+Route::get('/crearCoche', function () {
+    return view('crearCoche');
+})->name('crearCoche');
+
+Route::post('/addCoche', [CochesControlador::class, 'crearCoche'])->name('addCoche');
+
+//USUARIOS
+Route::get('/usuarios', [UsersController::class, 'mostrarUsuarios'])->name('verMostrarUsuarios');
+
