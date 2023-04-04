@@ -20,7 +20,10 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         Validator::make($input, [
+            'dni' => ['required', 'string'],
             'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string'],
+            'phone' => ['required', 'string'],
             'email' => [
                 'required',
                 'string',
@@ -32,7 +35,10 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return User::create([
+            'dni' => $input['dni'],
             'name' => $input['name'],
+            'surname' => $input['surname'],
+            'phone' => $input['phone'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
