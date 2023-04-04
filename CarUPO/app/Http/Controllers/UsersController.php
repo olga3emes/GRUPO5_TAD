@@ -12,7 +12,7 @@ class UsersController extends Controller
         $usuarios = User::all();
         return view('usuarios', @compact('usuarios'));
     }
-
+    /** 
     public function crearUsuario(Request $request)
     {
 
@@ -57,4 +57,5 @@ class UsersController extends Controller
         $user->save();
         return app()->make(ProductosController::class)->callAction('mostrarProductos', []);
     }
+     */
 }

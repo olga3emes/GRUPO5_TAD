@@ -34,15 +34,16 @@ Route::get('/home', function () {
 })->middleware(['auth', 'verified']);
 
 //PRODUCTOS
-Route::get('/', [ProductosController::class, 'mostrarProductos'])->name('mostrarProductos');
+Route::get('/productos', [ProductosController::class, 'mostrarProductos'])->name('mostrarProductos');
+
+
+
 
 //COCHES
-Route::get('/crearCoche', function () {
-    return view('crearCoche');
-})->name('crearCoche');
+
+Route::get('/crearCoche', [PagesController::class, 'crearCoche'])->name('crearCoche');
 
 Route::post('/addCoche', [CochesControlador::class, 'crearCoche'])->name('addCoche');
 
 //USUARIOS
-Route::get('/usuarios', [UsersController::class, 'mostrarUsuarios'])->name('verMostrarUsuarios');
-
+Route::get('/usuarios', [UsersController::class, 'mostrarUsuarios'])->name('mostrarUsuarios');

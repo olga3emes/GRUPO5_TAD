@@ -10,4 +10,9 @@ class PagesController extends Controller
     {
         return view('comienzo');
     }
+
+    public function crearCoche()
+    {
+        return view('crearCoche');
+    }
 }

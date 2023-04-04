@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class AccesoriosController extends Controller
 {
+    /** 
     public function crearAccesorio(Request $request)
     {
 
@@ -54,4 +55,5 @@ class AccesoriosController extends Controller
         $accesorio->save();
         return app()->make(ProductosController::class)->callAction('mostrarProductos', []);
     }
+     */
 }

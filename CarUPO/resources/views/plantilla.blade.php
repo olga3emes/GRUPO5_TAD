@@ -24,6 +24,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{route('inicio')}}">INICIO</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{route('crearCoche')}}">C</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{route('mostrarProductos')}}">P</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{route('mostrarUsuarios')}}">U</a>
+                        </li>
                         @if (Route::has('login'))
                         @auth
                         <li class="nav-item">
