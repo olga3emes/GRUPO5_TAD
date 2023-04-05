@@ -15,4 +15,9 @@ class PagesController extends Controller
     {
         return view('crearCoche');
     }
+
+    public function crearAccesorio()
+    {
+        return view('crearAccesorio');
+    }
 }
