@@ -15,7 +15,7 @@
     <header class="fixed-top" style="font-size: x-large;">
         <nav class="navbar navbar-expand-md navbar-light  bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand me-auto" href="{{route('inicio')}}"><img src="/logo.png" style="width: 100px;"></a>
+                <a class="navbar-brand me-auto" href="{{route('inicio')}}"><img src={{ asset('prueba.jpeg') }} style="width: 100px;"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#elementos" aria-controls="elementos" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -23,6 +23,9 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{route('inicio')}}">INICIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{route('crearAccesorio')}}">A</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{route('crearCoche')}}">C</a>

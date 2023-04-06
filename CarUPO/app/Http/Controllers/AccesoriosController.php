@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class AccesoriosController extends Controller
 {
-    /** 
+
     public function crearAccesorio(Request $request)
     {
 
@@ -21,8 +21,9 @@ class AccesoriosController extends Controller
         $accesorio->nombre = $request->nombre;
         $accesorio->fk_producto_id = $producto->id;
         $accesorio->save();
-        return back()->with('mensaje', 'Accesorio creado');
+        return app()->make(ProductosController::class)->callAction('mostrarProductos', []);
     }
+
 
     public function verBorrarAccesorio(Request $request)
     {
@@ -36,7 +37,7 @@ class AccesoriosController extends Controller
         $accesorio->delete();
         return app()->make(ProductosController::class)->callAction('mostrarProductos', []);
     }
-
+    /**
     public function verEditarAccesorio(Request $request)
     {
         $accesorio = Accesorio::findOrFail($request->id);

@@ -37,13 +37,26 @@ Route::get('/home', function () {
 Route::get('/productos', [ProductosController::class, 'mostrarProductos'])->name('mostrarProductos');
 
 
+//ACCESORIOS
+
+Route::get('/crearAccesorio', [PagesController::class, 'crearAccesorio'])->name('crearAccesorio');
+
+Route::post('/addAccesorio', [AccesoriosController::class, 'crearAccesorio'])->name('addAccesorio');
+
+Route::post('/borrarAccesorio', [AccesoriosController::class, 'verBorrarAccesorio'])->name('ver.accesorio.borrar');
+
+Route::delete('/borrarAccesorio', [AccesoriosController::class, 'eliminarAccesorio'])->name('accesorio.borrar');
 
 
 //COCHES
 
 Route::get('/crearCoche', [PagesController::class, 'crearCoche'])->name('crearCoche');
 
-Route::post('/addCoche', [CochesControlador::class, 'crearCoche'])->name('addCoche');
+Route::post('/addCoche', [CochesController::class, 'crearCoche'])->name('addCoche');
+
+Route::post('/borrarCoche', [CochesController::class, 'verBorrarCoche'])->name('ver.coche.borrar');
+
+Route::delete('/borrarCoche', [CochesController::class, 'eliminarCoche'])->name('coche.borrar');
 
 //USUARIOS
 Route::get('/usuarios', [UsersController::class, 'mostrarUsuarios'])->name('mostrarUsuarios');
