@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>@yield('titulo')</title>
     @vite(['resources/js/app.js', 'resources/css/app.scss'])
 </head>
@@ -36,22 +39,32 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{route('mostrarUsuarios')}}">U</a>
                         </li>
-                        @if (Route::has('login'))
-                        @auth
+                        <!-- Authentication Links -->
+                        @guest
                         <li class="nav-item">
-                            <a href="{{ url('/home') }}" class="nav-link text-white">Home</a>
-                        </li>
-                        @else
-                        <li class="nav-item">
-                            <a href="{{ route('login') }}" class="nav-link text-white">Login</a>
+                            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a href="{{ route('register') }}" class="nav-link text-white">Register</a>
+                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
-                        @endauth
-                        @endif
+                        @else
+                        @if (Auth::user()->email_verified_at)
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                </li>
+                            </ul>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                            @endif
+                        </div>
+                        @endguest
                     </ul>
                 </div>
 
@@ -59,7 +72,7 @@
         </nav>
     </header>
     <main class="min-vh-100  p-5  m-5">
-        <div class="container-fluid col-10 p-4 bg-dark bg-opacity-75  text-white fs-5">
+        <div class="container-fluid col-10 p-4 bg-dark bg-opacity-75 fs-5">
             @yield('contenido')
         </div>
     </main>
