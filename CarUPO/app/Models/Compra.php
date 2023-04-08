@@ -9,13 +9,19 @@ class Compra extends Model
 {
     use HasFactory;
 
+    /**
+     * Get the user that owns the compra.
+     */
     public function user()
     {
-        return $this->belongsTo(User::class,  'id');
+        return $this->belongsTo(User::class, 'fk_user');
     }
 
+    /**
+     * Get the linea_compras for the compra.
+     */
     public function lineas_de_compra()
     {
-        return $this->hasMany(Linea_compra::class,  'id');
+        return $this->hasMany(LineaCompra::class, 'fk_compra_id');
     }
 }

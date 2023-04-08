@@ -13,6 +13,7 @@
 
 
             <th>PRODUCTO</th>
+            <th>CANTIDAD</th>
             <th>PRECIO PARCIAL</th>
             <th>Editar</th>
         </tr>
@@ -23,10 +24,13 @@
         <td>
             <img width="20%" height="20%" src="{{ $linea->producto->foto}}" />
         </td>
-        <td>{{ $linea->precio_parcial}}€</td>
+        <td>{{ $linea->cantidad}}</td>
+
+        <td>{{ $linea->precio_parcial * $linea->cantidad}}€</td>
         <td>
             <form action="{{ route('eliminarLineaCarrito') }}" method="POST">
                 @csrf
+                @method('DELETE')
                 <input type="hidden" name="id" value="{{$linea->producto->id }}">
                 <button class="btn btn-danger btn-block" type="submit">
                     Eliminar

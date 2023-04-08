@@ -17,4 +17,12 @@ class Carrito_comprasController extends Controller
         $mi_carrito = Carrito_compra::findOrFail($id);
         return view('carrito', @compact('mi_carrito'));
     }
+
+
+    public function eliminarLineaCarrito(Request $request)
+    {
+        $linea_carrito = Linea_carrito::findOrFail($request->id);
+        $linea_carrito->delete();
+        return app()->make(Carrito_comprasController::class)->callAction('mostrarCarrito', []);
+    }
 }

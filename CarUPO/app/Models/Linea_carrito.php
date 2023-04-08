@@ -9,12 +9,13 @@ class Linea_carrito extends Model
 {
     use HasFactory;
 
-    public function carrito_compra()
+    public function carritoCompra()
     {
-        return $this->belongsTo(Carrito_compra::class, 'id');
+        return $this->belongsTo(CarritoCompra::class, 'fk_carrito_id');
     }
+
     public function producto()
     {
-        return $this->belongsTo(Producto::class, 'id');
+        return $this->belongsTo(Producto::class, 'fk_producto_id');
     }
 }

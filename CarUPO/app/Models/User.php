@@ -50,12 +50,21 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Get the compras for the user.
+     */
     public function compras()
     {
-        return $this->hasMany(Compra::class, 'id');
+        return $this->hasMany(Compra::class, 'fk_user');
     }
-    public function carrito_compra()
+
+    public function carritoCompra()
     {
-        return $this->belongsTo(Carrito_compra::class, 'id');
+        return $this->hasMany(CarritoCompra::class, 'fk_user');
+    }
+
+    public function isAdmin(): bool
+    {
+        return (bool) $this->admin;
     }
 }

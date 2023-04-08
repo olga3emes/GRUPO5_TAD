@@ -9,12 +9,19 @@ class Linea_compra extends Model
 {
     use HasFactory;
 
-    public function compra()
-    {
-        return $this->belongsTo(Compra::class, 'id');
-    }
+    /**
+     * Get the producto that owns the linea_compra.
+     */
     public function producto()
     {
-        return $this->belongsTo(Producto::class, 'id');
+        return $this->belongsTo(Producto::class, 'fk_producto_id');
+    }
+
+    /**
+     * Get the compra that owns the linea_compra.
+     */
+    public function compra()
+    {
+        return $this->belongsTo(Compra::class, 'fk_compra_id');
     }
 }

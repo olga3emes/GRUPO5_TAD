@@ -22,7 +22,6 @@
             <th>Borrar</th>
         </tr>
     </thead>
-    <h1 class="text-white">{{$productos[7]->coche}}</h1>
     @foreach ($productos as $producto)
 
     @if ($producto->coche != null)
