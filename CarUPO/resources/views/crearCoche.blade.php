@@ -1,7 +1,7 @@
 @extends('plantilla')
 @section('titulo','INICIO')
 @section('contenido')
-<div class="container-lg my-3 col-xs-12 col-md-8 col-lg-6 col-xl-6">
+<div class="container-lg my-3 col-xs-12 col-md-6 col-lg-4 col-xl-4">
     <div class="justify-content-center d-flex mb-3">
         <h1>Crear nuevo coche</h1>
     </div>
@@ -20,7 +20,7 @@
         <input type="number" required name="precio" placeholder="Precio del coche" step="0.01" class="form-control mb-2">
 
         <div class="justify-content-center d-flex">
-            <button id="button" class="btn btn-primary btn-block m-3" type="submit">
+            <button class="buttonP btn btn-primary btn-block m-3" type="submit">
                 Crear nuevo coche
             </button>
         </div>

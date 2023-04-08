@@ -2,12 +2,18 @@
 
 $blue:    #012e46;
 $btn-link-color:#365b77;
+$active: #557996;
 
 #azul {
     background-color: $blue;
 }
 
-#button {
+.buttonP {
     background-color: $btn-link-color;
     border-color: $btn-link-color;
+}
+
+.buttonP:hover {
+    background-color: $active;
+    border-color: $active;
 }
