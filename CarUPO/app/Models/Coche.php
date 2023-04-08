@@ -10,6 +10,6 @@ class Coche extends Producto
     use HasFactory;
     public function producto()
     {
-        return $this->hasOne(Producto::class, 'id', 'fk_producto_id');
+        return $this->hasOne(Producto::class, 'fk_producto_id');
     }
 }

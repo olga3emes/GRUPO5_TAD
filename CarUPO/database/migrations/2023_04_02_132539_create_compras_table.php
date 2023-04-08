@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
             $table->foreignId('fk_user')->references('id')->on('users')->onDelete('restrict');
+            $table->string('estado');
             $table->float('precio_total')->default(0);
             $table->date('fecha');
             $table->timestamps();

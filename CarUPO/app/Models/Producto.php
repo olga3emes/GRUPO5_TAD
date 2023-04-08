@@ -19,4 +19,9 @@ class Producto extends Model
     {
         return $this->belongsTo(Coche::class);
     }
+
+    public function linea_compra()
+    {
+        return $this->hasMany(Linea_compra::class, 'fk_producto_id');
+    }
 }

@@ -8,8 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Compra extends Model
 {
     use HasFactory;
-    #public function linea_compras()
-    #{
-    #    return $this->hasOne(Linea_compra::class, 'id', 'fk_compra_id');
-    #}
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'fk_user');
+    }
+
+    public function linea_compra()
+    {
+        return $this->hasMany(Linea_compra::class);
+    }
 }

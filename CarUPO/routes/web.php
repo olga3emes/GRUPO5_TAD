@@ -24,11 +24,14 @@ use App\Http\Controllers\UsersController;
 */
 
 
-// Todas las redirecciones se controlan en la clase de app/models/PagesController
+// REDIRECCIONES (La unica funcionalidad es llevarte a una pagina web)
 
 Route::get('/', [PagesController::class, 'inicio'])->name('inicio');
+Route::get('/crearAccesorio', [PagesController::class, 'crearAccesorio'])->name('crearAccesorio');
+Route::get('/crearCoche', [PagesController::class, 'crearCoche'])->name('crearCoche');
 
-// Es como viene por defecto, no tocar por el momento
+
+// AUTENTIFICACIÓN
 Route::get('/home', function () {
     return view('auth.dashboard');
 })->middleware(['auth', 'verified']);
@@ -39,7 +42,6 @@ Route::get('/productos', [ProductosController::class, 'mostrarProductos'])->name
 
 //ACCESORIOS
 
-Route::get('/crearAccesorio', [PagesController::class, 'crearAccesorio'])->name('crearAccesorio');
 
 Route::post('/addAccesorio', [AccesoriosController::class, 'crearAccesorio'])->name('addAccesorio');
 
@@ -50,13 +52,17 @@ Route::delete('/borrarAccesorio', [AccesoriosController::class, 'eliminarAccesor
 
 //COCHES
 
-Route::get('/crearCoche', [PagesController::class, 'crearCoche'])->name('crearCoche');
 
 Route::post('/addCoche', [CochesController::class, 'crearCoche'])->name('addCoche');
 
 Route::post('/borrarCoche', [CochesController::class, 'verBorrarCoche'])->name('ver.coche.borrar');
 
 Route::delete('/borrarCoche', [CochesController::class, 'eliminarCoche'])->name('coche.borrar');
+
+
+//PEDIDOS
+
+Route::get('/compras', [ComprasController::class, 'mostrarCompras'])->name('mostrarCompras');
 
 //USUARIOS
 Route::get('/usuarios', [UsersController::class, 'mostrarUsuarios'])->name('mostrarUsuarios');
