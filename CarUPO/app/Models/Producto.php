@@ -13,10 +13,21 @@ class Producto extends Model
 
     public function accesorio()
     {
-        return $this->belongsTo(Accesorio::class);
+        return $this->hasOne(Accesorio::class, 'fk_producto_id', 'id');
     }
+
     public function coche()
     {
-        return $this->belongsTo(Coche::class);
+        return $this->hasOne(Coche::class, 'fk_producto_id', 'id');
+    }
+
+    public function lineas_de_carrito()
+    {
+        return $this->hasMany(LineaCarrito::class, 'fk_producto_id');
+    }
+    
+    public function lineas_de_compra()
+    {
+        return $this->hasMany(LineaCompra::class, 'fk_producto_id');
     }
 }
