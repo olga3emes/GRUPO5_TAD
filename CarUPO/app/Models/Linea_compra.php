@@ -11,10 +11,10 @@ class Linea_compra extends Model
 
     public function compra()
     {
-        return $this->belongsTo(Compra::class, 'fk_compra_id');
+        return $this->belongsTo(Compra::class, 'id');
     }
     public function producto()
     {
-        return $this->belongsTo(Producto::class, 'fk_producto_id');
+        return $this->belongsTo(Producto::class, 'id');
     }
 }

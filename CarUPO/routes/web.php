@@ -48,7 +48,7 @@ Route::post('/addAccesorio', [AccesoriosController::class, 'crearAccesorio'])->n
 
 Route::post('/borrarAccesorio', [AccesoriosController::class, 'verBorrarAccesorio'])->name('ver.accesorio.borrar');
 
-Route::delete('/borrarAccesorio', [AccesoriosController::class, 'eliminarAccesorio'])->name('accesorio.borrar');
+Route::delete('/productos', [AccesoriosController::class, 'eliminarAccesorio'])->name('accesorio.borrar');
 
 
 //COCHES
@@ -58,7 +58,7 @@ Route::post('/addCoche', [CochesController::class, 'crearCoche'])->name('addCoch
 
 Route::post('/borrarCoche', [CochesController::class, 'verBorrarCoche'])->name('ver.coche.borrar');
 
-Route::delete('/borrarCoche', [CochesController::class, 'eliminarCoche'])->name('coche.borrar');
+Route::delete('/productos', [CochesController::class, 'eliminarCoche'])->name('coche.borrar');
 
 
 //COMPRAS

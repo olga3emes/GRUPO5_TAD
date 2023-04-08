@@ -15,6 +15,6 @@ class Carrito_compra extends Model
     }
     public function user()
     {
-        return $this->hasOne(User::class, 'fk_user');
+        return $this->hasOne(User::class, 'id');
     }
 }
