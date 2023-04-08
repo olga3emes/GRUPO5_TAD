@@ -6,6 +6,12 @@
 <div class="alert alert-info">
     <span>No hay nada en el carrito</span>
 </div>
+<form>
+    @csrf
+    <button class="btn btn-danger btn-block disabled" type="submit">
+        Comprar
+    </button>
+</form>
 @else
 <table class="table m-3 rounded-2 bg-white">
     <thead>
@@ -26,7 +32,7 @@
         </td>
         <td>{{ $linea->cantidad}}</td>
 
-        <td>{{ $linea->precio_parcial * $linea->cantidad}}€</td>
+        <td>{{ $mi_carrito->precio_total}}€</td>
         <td>
             <form action="{{ route('eliminarLineaCarrito') }}" method="POST">
                 @method('DELETE')
@@ -40,5 +46,12 @@
     </tr>
     @endforeach
 </table>
+<form action="{{ route('comprarCarrito') }}" method="POST">
+    @csrf
+    <input type="hidden" name="id" value="{{}}">
+    <button class="btn btn-danger btn-block" type="submit">
+        Comprar
+    </button>
+</form>
 @endif
 @endsection

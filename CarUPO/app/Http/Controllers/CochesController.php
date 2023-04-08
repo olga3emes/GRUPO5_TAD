@@ -60,7 +60,7 @@ class CochesController extends Controller
         $coche->delete();
         return app()->make(ProductosController::class)->callAction('mostrarProductos', []);
     }
-    
+
     /** 
     public function verEditarCoche(Request $request)
     {
