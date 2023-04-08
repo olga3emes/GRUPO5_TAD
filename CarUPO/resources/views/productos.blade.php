@@ -36,7 +36,7 @@
         <td>{{ $producto->coche->cilindrada }}</td>
         <td>{{ $producto->coche->potencia }}</td>
         <td>{{ $producto->coche->nPuertas }}</td>
-        <td>{{ $producto->coche->precio }}</td>
+        <td>{{ $producto->precio }}</td>
         <td>
             <form action="{{ route('ver.coche.borrar') }}" method="POST">
                 @csrf

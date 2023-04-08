@@ -68,6 +68,8 @@ Route::get('/compras', [ComprasController::class, 'mostrarCompras'])->name('most
 //CARRITO
 
 Route::get('/carrito', [Carrito_comprasController::class, 'mostrarCarrito'])->name('mostrarCarrito');
+Route::post('/carrito', [Carrito_comprasController::class, 'comprarCarrito'])->name('comprarCarrito');
+
 
 //LINEA DE CARRITO
 Route::delete('/carrito', [Carrito_comprasController::class, 'eliminarLineaCarrito'])->name('eliminarLineaCarrito');
