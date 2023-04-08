@@ -1,1 +1,13 @@
 @import 'bootstrap/scss/bootstrap';
+
+$blue:    #012e46;
+$btn-link-color:#365b77;
+
+#azul {
+    background-color: $blue;
+}
+
+#button {
+    background-color: $btn-link-color;
+    border-color: $btn-link-color;
+}
