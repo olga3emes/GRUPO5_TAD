@@ -15,7 +15,7 @@
         <input type="number" required name="precio" placeholder="Precio del accesorio" step="0.01" class="form-control mb-2">
 
         <div class="justify-content-center d-flex">
-            <button id="button" class="btn btn-primary btn-block m-3" type="submit">
+            <button class="buttonP btn btn-primary btn-block m-3" type="submit">
                 Crear nuevo accesorio
             </button>
         </div>
