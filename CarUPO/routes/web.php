@@ -24,11 +24,14 @@ use App\Http\Controllers\UsersController;
 */
 
 
-// Todas las redirecciones se controlan en la clase de app/models/PagesController
+// REDIRECCIONES (La unica funcionalidad es llevarte a una pagina web)
 
 Route::get('/', [PagesController::class, 'inicio'])->name('inicio');
+Route::get('/crearAccesorio', [PagesController::class, 'crearAccesorio'])->name('crearAccesorio');
+Route::get('/crearCoche', [PagesController::class, 'crearCoche'])->name('crearCoche');
 
-// Es como viene por defecto, no tocar por el momento
+
+// AUTENTIFICACIÓN
 Route::get('/home', function () {
     return view('auth.dashboard');
 })->middleware(['auth', 'verified']);
@@ -37,26 +40,41 @@ Route::get('/home', function () {
 Route::get('/productos', [ProductosController::class, 'mostrarProductos'])->name('mostrarProductos');
 
 
+
 //ACCESORIOS
 
-Route::get('/crearAccesorio', [PagesController::class, 'crearAccesorio'])->name('crearAccesorio');
 
 Route::post('/addAccesorio', [AccesoriosController::class, 'crearAccesorio'])->name('addAccesorio');
 
 Route::post('/borrarAccesorio', [AccesoriosController::class, 'verBorrarAccesorio'])->name('ver.accesorio.borrar');
 
-Route::delete('/borrarAccesorio', [AccesoriosController::class, 'eliminarAccesorio'])->name('accesorio.borrar');
+Route::delete('/productos', [AccesoriosController::class, 'eliminarAccesorio'])->name('accesorio.borrar');
 
 
 //COCHES
 
-Route::get('/crearCoche', [PagesController::class, 'crearCoche'])->name('crearCoche');
 
 Route::post('/addCoche', [CochesController::class, 'crearCoche'])->name('addCoche');
 
 Route::post('/borrarCoche', [CochesController::class, 'verBorrarCoche'])->name('ver.coche.borrar');
 
-Route::delete('/borrarCoche', [CochesController::class, 'eliminarCoche'])->name('coche.borrar');
+Route::delete('/productos', [CochesController::class, 'eliminarCoche'])->name('coche.borrar');
+
+
+//COMPRAS
+
+Route::get('/compras', [ComprasController::class, 'mostrarCompras'])->name('mostrarCompras');
+
+//CARRITO
+
+Route::get('/carrito', [Carrito_comprasController::class, 'mostrarCarrito'])->name('mostrarCarrito');
+Route::post('/carrito', [Carrito_comprasController::class, 'comprarCarrito'])->name('comprarCarrito');
+
+
+//LINEA DE CARRITO
+Route::delete('/carrito', [Carrito_comprasController::class, 'eliminarLineaCarrito'])->name('eliminarLineaCarrito');
+
+
 
 //USUARIOS
 Route::get('/usuarios', [UsersController::class, 'mostrarUsuarios'])->name('mostrarUsuarios');
