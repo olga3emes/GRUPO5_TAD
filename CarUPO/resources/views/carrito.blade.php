@@ -29,9 +29,9 @@
         <td>{{ $linea->precio_parcial * $linea->cantidad}}€</td>
         <td>
             <form action="{{ route('eliminarLineaCarrito') }}" method="POST">
-                @csrf
                 @method('DELETE')
-                <input type="hidden" name="id" value="{{$linea->producto->id }}">
+                @csrf
+                <input type="hidden" name="id" value="{{$linea->id}}">
                 <button class="btn btn-danger btn-block" type="submit">
                     Eliminar
                 </button>

@@ -70,7 +70,7 @@ Route::get('/compras', [ComprasController::class, 'mostrarCompras'])->name('most
 Route::get('/carrito', [Carrito_comprasController::class, 'mostrarCarrito'])->name('mostrarCarrito');
 
 //LINEA DE CARRITO
-Route::delete('/borrarLineaCarrito', [Carrito_comprasController::class, 'eliminarLineaCarrito'])->name('eliminarLineaCarrito');
+Route::delete('/carrito', [Carrito_comprasController::class, 'eliminarLineaCarrito'])->name('eliminarLineaCarrito');
 
 
 
