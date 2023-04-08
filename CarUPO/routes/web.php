@@ -40,6 +40,7 @@ Route::get('/home', function () {
 Route::get('/productos', [ProductosController::class, 'mostrarProductos'])->name('mostrarProductos');
 
 
+
 //ACCESORIOS
 
 
@@ -60,9 +61,18 @@ Route::post('/borrarCoche', [CochesController::class, 'verBorrarCoche'])->name('
 Route::delete('/borrarCoche', [CochesController::class, 'eliminarCoche'])->name('coche.borrar');
 
 
-//PEDIDOS
+//COMPRAS
 
 Route::get('/compras', [ComprasController::class, 'mostrarCompras'])->name('mostrarCompras');
+
+//CARRITO
+
+Route::get('/carrito', [Carrito_comprasController::class, 'mostrarCarrito'])->name('mostrarCarrito');
+
+//LINEA DE CARRITO
+Route::delete('/borrarLineaCarrito', [Carrito_comprasController::class, 'eliminarLineaCarrito'])->name('eliminarLineaCarrito');
+
+
 
 //USUARIOS
 Route::get('/usuarios', [UsersController::class, 'mostrarUsuarios'])->name('mostrarUsuarios');

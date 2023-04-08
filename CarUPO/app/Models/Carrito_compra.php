@@ -9,9 +9,9 @@ class Carrito_compra extends Model
 {
     use HasFactory;
 
-    public function linea_carrito()
+    public function lineas_de_carrito()
     {
-        return $this->hasMany(Linea_carrito::class);
+        return $this->hasMany(Linea_carrito::class, 'id');
     }
     public function user()
     {

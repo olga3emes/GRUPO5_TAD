@@ -11,11 +11,11 @@ class Compra extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'fk_user');
+        return $this->belongsTo(User::class,  'fk_user');
     }
 
-    public function linea_compra()
+    public function lineas_de_compra()
     {
-        return $this->hasMany(Linea_compra::class);
+        return $this->hasMany(Linea_compra::class,  'id');
     }
 }

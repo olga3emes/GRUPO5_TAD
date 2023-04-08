@@ -52,10 +52,10 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function compras()
     {
-        return $this->hasMany(Compra::class);
+        return $this->hasMany(Compra::class, 'id');
     }
     public function carrito_compra()
     {
-        return $this->belongsTo(Carrito_compra::class);
+        return $this->belongsTo(Carrito_compra::class, 'id');
     }
 }

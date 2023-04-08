@@ -11,10 +11,10 @@ class Linea_carrito extends Model
 
     public function carrito_compra()
     {
-        return $this->belongsTo(Carrito_compra::class);
+        return $this->belongsTo(Carrito_compra::class, 'fk_carrito_id');
     }
     public function producto()
     {
-        return $this->belongsTo(Producto::class);
+        return $this->belongsTo(Producto::class, 'fk_producto_id');
     }
 }
