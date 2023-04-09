@@ -2,7 +2,7 @@
 @section('titulo','INICIO')
 @section('contenido')
 
-<div class="container-lg my-3 col-xs-12 col-md-8 col-lg-6 col-xl-6">
+<div class="container-lg my-3 col-xs-12 col-md-6 col-lg-4 col-xl-4">
     <div class="justify-content-center d-flex mb-3">
         <h1>Crear nuevo accesorio</h1>
     </div>
