@@ -14,9 +14,8 @@
 </head>
 
 <body class="vh-100 bg-light">
-
     <header class="fixed-top" style="font-size: x-large;">
-        <nav id="azul" class="navbar navbar-expand-md navbar-dark ">
+        <nav id="azul" class="navbar navbar-expand-lg navbar-dark ">
             <div class="container-fluid px-4">
                 <a class="navbar-brand me-auto" href="{{route('inicio')}}">
                     <img src={{ asset('logo.png') }} alt="Logo" style="width: 100px; font-size: x-large;">         
@@ -30,7 +29,6 @@
                             <a class="nav-link text-white" href="{{route('inicio')}}">Mi perfil</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
-
                             <a class="nav-link text-white" href="{{route('mostrarProductos')}}">Productos</a>
                         </li>               
                         <li class="nav-item justify-content-center d-flex">
@@ -38,6 +36,12 @@
                         </li>
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('mostrarCarrito')}}">Carrito</a>
+                        </li>
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('mostrarCompras')}}">Compras</a>
+                        </li>
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('misCompras')}}">Mis compras</a>
                         </li>
                         
                         <!-- Authentication Links -->
@@ -77,7 +81,7 @@
             @yield('contenido')
         </div>
     </main>
-    <footer id="azul" class="fixed-sticked">
+    <footer id="azul" class="fixed-sticked m-0 min-vw-100">
         <div class="container-fluid bg-grey p-4 py-3 text-white">
             <p class="justify-content-center d-flex">Derechos reservados © 2023 GRUPO 5</p>
         </div>

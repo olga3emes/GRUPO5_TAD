@@ -9,9 +9,16 @@
     <form action="{{ route('editar.accesorio') }}" method="POST">
         @method('PUT')
         @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
+        <label for="nombre" class="form-label">Nombre</label>
         <input type="text" required name="nombre" value="{{ $accesorio->nombre }}" placeholder="Nombre" class="form-control mb-2" autofocus>
-        <input type="text" required name="descripcion" value="{{ $accesorio->producto->descripcion }}" placeholder="Descripción" class="form-control mb-2">
+        
+        <label for="descripcion" class="form-label">Descripción</label>
+        <textarea type="text" required name="descripcion" placeholder="Descripción" class="form-control mb-2">{{ $accesorio->producto->descripcion }}</textarea>
+        
+        <label for="foto" class="form-label">Foto</label>
         <input type="text" required name="foto" value="{{ $accesorio->producto->foto }}" placeholder="Foto" class="form-control mb-2">
+        
+        <label for="precio" class="form-label">Precio</label>
         <input type="number" required name="precio" value="{{ $accesorio->producto->precio }}" placeholder="Precio del accesorio" step="0.01" class="form-control mb-2">
 
         <div class="justify-content-center d-flex">
@@ -21,5 +28,13 @@
             </button>
         </div>
     </form>
+    <div class="d-flex justify-content-start mt-5">
+        <form action="{{ route('mostrarProductos') }}" method="GET">
+            @csrf
+            <button class="btn btn-danger btn-block" type="submit">
+                Atr&aacute;s
+            </button>
+        </form>
+    </div>
 </div>
 @endsection

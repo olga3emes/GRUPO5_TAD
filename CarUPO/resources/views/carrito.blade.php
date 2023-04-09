@@ -1,26 +1,25 @@
 @extends('plantilla')
 @section('contenido')
 
-<div class="container-lg my-3 col-xs-10 col-md-8 col-lg-8 col-xl-8">
+<div class="container-lg my-3 col-xs-10 col-sm-10 col-md-8 col-lg-8 col-xl-8">
     <div class="justify-content-center d-flex mb-3">
         <h1>Carrito</h1>
     </div>
-    
-@if ( sizeof( $mi_carrito->lineas_de_carrito) < 1 ) 
-<div class="alert alert-info">
-    <span>No hay nada en el carrito</span>
-    </div>
-    <form>
-        @csrf
-        <button class="btn btn-danger btn-block disabled" type="submit">
-            Comprar
-        </button>
-    </form>
-    @else
-    <table class="table m-3 rounded-2 bg-white">
+
+    @if ( sizeof( $mi_carrito->lineas_de_carrito) < 1 ) <div class="alert alert-info">
+        <span>No hay nada en el carrito</span>
+</div>
+<form>
+    @csrf
+    <button class="btn btn-danger btn-block disabled" type="submit">
+        Comprar
+    </button>
+</form>
+@else
+<div class="table-responsive">
+    <table class="table table-striped rounded-2 bg-white">
         <thead>
             <tr class="table-row  text-center align-middle">
-
                 <th>PRODUCTO</th>
                 <th>CANTIDAD</th>
                 <th>PRECIO PARCIAL</th>
@@ -50,13 +49,18 @@
         </tr>
         @endforeach
     </table>
-    <h1>PRECIO TOTAL: {{ $mi_carrito->precio_total}}€
-        <form action="{{ route('comprarCarrito') }}" method="POST">
-            @csrf
-            <input type="hidden" name="id" value="{{}}">
-            <button class="btn btn-danger btn-block" type="submit">
-                Comprar
-            </button>
-        </form>
-        @endif
-        @endsection
+</div>
+<div class="justify-content-center d-flex mt-5">
+    <h3>PRECIO TOTAL: {{ $mi_carrito->precio_total}} €</h3>
+</div>
+<div class="justify-content-center d-flex mt-3">
+    <form action="{{ route('comprarCarrito') }}" method="POST">
+        @csrf
+        <input type="hidden" name="id" value="{{}}">
+        <button class="buttonP btn btn-danger btn-block" type="submit">
+            Comprar
+        </button>
+    </form>
+</div>
+@endif
+@endsection
