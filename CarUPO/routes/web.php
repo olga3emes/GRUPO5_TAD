@@ -48,6 +48,10 @@ Route::post('/addAccesorio', [AccesoriosController::class, 'crearAccesorio'])->n
 
 Route::post('/accesorio', [AccesoriosController::class, 'verMostrarAccesorio'])->name('verAccesorio');
 
+Route::post('/editarAccesorio', [AccesoriosController::class, 'verEditarAccesorio'])->name('ver.accesorio.editar');
+
+Route::put('/updateAccesorio', [AccesoriosController::class, 'editarAccesorio'])->name('editar.accesorio');
+
 Route::post('/borrarAccesorio', [AccesoriosController::class, 'verBorrarAccesorio'])->name('ver.accesorio.borrar');
 
 Route::delete('/delAccesorio', [AccesoriosController::class, 'eliminarAccesorio'])->name('accesorio.borrar');
@@ -60,6 +64,10 @@ Route::post('/addCoche', [CochesController::class, 'crearCoche'])->name('addCoch
 
 Route::post('/coche', [CochesController::class, 'verMostrarCoche'])->name('verCoche');
 
+Route::post('/editarCoche', [CochesController::class, 'verEditarCoche'])->name('ver.coche.editar');
+
+Route::put('/updateCoche', [CochesController::class, 'editarCoche'])->name('editar.coche');
+
 Route::post('/borrarCoche', [CochesController::class, 'verBorrarCoche'])->name('ver.coche.borrar');
 
 Route::delete('/delCoche', [CochesController::class, 'eliminarCoche'])->name('coche.borrar');
@@ -68,6 +76,8 @@ Route::delete('/delCoche', [CochesController::class, 'eliminarCoche'])->name('co
 //COMPRAS
 
 Route::get('/compras', [ComprasController::class, 'mostrarCompras'])->name('mostrarCompras');
+
+Route::get('/misCompras', [ComprasController::class, 'misCompras'])->name('misCompras');
 
 Route::put('/estadoActualizado', [ComprasController::class, 'actualizarEstado'])->name('actualizarEstado');
 
