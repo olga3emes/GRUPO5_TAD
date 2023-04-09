@@ -28,16 +28,22 @@
                             <a class="nav-link text-white" href="{{route('inicio')}}">INICIO</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('crearAccesorio')}}">A</a>
+                            <a class="nav-link text-white" href="{{route('crearAccesorio')}}">Crear_Accesorio</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('crearCoche')}}">C</a>
+                            <a class="nav-link text-white" href="{{route('crearCoche')}}">Crear_Coche</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarProductos')}}">P</a>
+                            <a class="nav-link text-white" href="{{route('mostrarProductos')}}">Productos</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarUsuarios')}}">U</a>
+                            <a class="nav-link text-white" href="{{route('mostrarUsuarios')}}">Usuarios</a>
+                        </li>
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('mostrarCompras')}}">Compras</a>
+                        </li>
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('mostrarCarrito')}}">Carrito</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest

@@ -25,7 +25,13 @@
 
             </div>
             <div class="card-footer justify-content-center d-flex">
-                <a href="#" class="btn btn-primary">Ver producto</a>
+                <form action="{{ route('verCoche') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $producto->coche->id }}">
+                    <button class="btn btn-primary" type="submit">
+                        Ver producto
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -43,7 +49,13 @@
 
             </div>
             <div class="card-footer justify-content-center d-flex">
-                <a href="#" class="btn btn-primary">Ver producto</a>
+                <form action="{{ route('verAccesorio') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $producto->accesorio->id }}">
+                    <button class="btn btn-primary" type="submit">
+                        Ver producto
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -69,7 +81,7 @@
     @foreach ($productos as $producto)
 
     @if ($producto->coche != null)
-    
+
 
 
     <tr class="table-row text-center align-middle">
