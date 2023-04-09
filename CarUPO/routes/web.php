@@ -46,9 +46,15 @@ Route::get('/productos', [ProductosController::class, 'mostrarProductos'])->name
 
 Route::post('/addAccesorio', [AccesoriosController::class, 'crearAccesorio'])->name('addAccesorio');
 
+Route::post('/accesorio', [AccesoriosController::class, 'verMostrarAccesorio'])->name('verAccesorio');
+
+Route::post('/editarAccesorio', [AccesoriosController::class, 'verEditarAccesorio'])->name('ver.accesorio.editar');
+
+Route::put('/updateAccesorio', [AccesoriosController::class, 'editarAccesorio'])->name('editar.accesorio');
+
 Route::post('/borrarAccesorio', [AccesoriosController::class, 'verBorrarAccesorio'])->name('ver.accesorio.borrar');
 
-Route::delete('/productos', [AccesoriosController::class, 'eliminarAccesorio'])->name('accesorio.borrar');
+Route::delete('/delAccesorio', [AccesoriosController::class, 'eliminarAccesorio'])->name('accesorio.borrar');
 
 
 //COCHES
@@ -56,23 +62,38 @@ Route::delete('/productos', [AccesoriosController::class, 'eliminarAccesorio'])-
 
 Route::post('/addCoche', [CochesController::class, 'crearCoche'])->name('addCoche');
 
+Route::post('/coche', [CochesController::class, 'verMostrarCoche'])->name('verCoche');
+
+Route::post('/editarCoche', [CochesController::class, 'verEditarCoche'])->name('ver.coche.editar');
+
+Route::put('/updateCoche', [CochesController::class, 'editarCoche'])->name('editar.coche');
+
 Route::post('/borrarCoche', [CochesController::class, 'verBorrarCoche'])->name('ver.coche.borrar');
 
-Route::delete('/productos', [CochesController::class, 'eliminarCoche'])->name('coche.borrar');
+Route::delete('/delCoche', [CochesController::class, 'eliminarCoche'])->name('coche.borrar');
 
 
 //COMPRAS
 
 Route::get('/compras', [ComprasController::class, 'mostrarCompras'])->name('mostrarCompras');
 
+Route::get('/misCompras', [ComprasController::class, 'misCompras'])->name('misCompras');
+
+Route::put('/estadoActualizado', [ComprasController::class, 'actualizarEstado'])->name('actualizarEstado');
+
+
 //CARRITO
 
 Route::get('/carrito', [Carrito_comprasController::class, 'mostrarCarrito'])->name('mostrarCarrito');
-Route::post('/carrito', [Carrito_comprasController::class, 'comprarCarrito'])->name('comprarCarrito');
+
+Route::post('/comprarCarrito', [Carrito_comprasController::class, 'comprarCarrito'])->name('comprarCarrito');
 
 
 //LINEA DE CARRITO
-Route::delete('/carrito', [Carrito_comprasController::class, 'eliminarLineaCarrito'])->name('eliminarLineaCarrito');
+
+Route::post('/addAlCarrito', [Carrito_comprasController::class, 'addToCarrito'])->name('addToCarrito');
+
+Route::delete('/deleteToCarrito', [Carrito_comprasController::class, 'eliminarLineaCarrito'])->name('eliminarLineaCarrito');
 
 
 

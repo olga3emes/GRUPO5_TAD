@@ -54,6 +54,37 @@ class CochesController extends Controller
         return view('borrarCoche', @compact('coche'));
     }
 
+    public function verMostrarCoche(Request $request)
+    {
+        $coche = Coche::findOrFail($request->id);
+        return view('mostrarCoche', @compact('coche'));
+    }
+
+    public function verEditarCoche(Request $request)
+    {
+        $coche = Coche::findOrFail($request->id);
+        return view('editarCoche', @compact('coche'));
+    }
+
+    public function editarCoche(Request $request)
+    {
+        $coche = Coche::findOrFail($request->id);
+        $producto = $coche->producto;
+        $producto->descripcion = $request->descripcion;
+        $producto->foto = $request->foto;
+        $producto->precio = $request->precio;
+        $producto->save();
+        $coche->marca = $request->marca;
+        $coche->modelo = $request->modelo;
+        $coche->color = $request->color;
+        $coche->combustible = $request->combustible;
+        $coche->cilindrada = $request->cilindrada;
+        $coche->potencia = $request->potencia;
+        $coche->nPuertas = $request->nPuertas;
+        $coche->fk_producto_id = $producto->id;
+        $coche->save();
+        return app()->make(ProductosController::class)->callAction('mostrarProductos', []);
+    }
     public function eliminarCoche(Request $request)
     {
         $coche = Coche::findOrFail($request->id);
@@ -61,13 +92,9 @@ class CochesController extends Controller
         return app()->make(ProductosController::class)->callAction('mostrarProductos', []);
     }
 
-    /** 
-    public function verEditarCoche(Request $request)
-    {
-        $coche = Coche::findOrFail($request->id);
-        return view('editarCoche', @compact('coche'));
-    }
 
+
+    /*
     public function editarCoche(Request $request)
     {
         $coche = Coche::findOrFail($request->id);

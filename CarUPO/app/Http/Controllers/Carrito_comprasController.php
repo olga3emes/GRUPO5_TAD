@@ -9,6 +9,7 @@ use App\Models\Carrito_compra;
 use App\Models\Linea_carrito;
 use App\Models\Compra;
 use App\Models\Linea_compra;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -25,12 +26,34 @@ class Carrito_comprasController extends Controller
     }
 
 
+
     public function eliminarLineaCarrito(Request $request)
     {
+        $id = Auth::user()->id;
+        $mi_carrito = Carrito_compra::findOrFail($id);
         $linea_carrito = Linea_carrito::findOrFail($request->id);
+        $mi_carrito->precio_total = $mi_carrito->precio_total - $linea_carrito->precio_parcial;
+        $mi_carrito->save();
         $linea_carrito->delete();
         return app()->make(Carrito_comprasController::class)->callAction('mostrarCarrito', []);
     }
+
+    public function addToCarrito(Request $request)
+    {
+        $id = Auth::user()->id;
+        $mi_carrito = Carrito_compra::findOrFail($id);
+        $linea_carrito = new Linea_carrito();
+        $producto = Producto::findOrFail($id);
+        $linea_carrito->fk_producto_id = $producto->id;
+        $linea_carrito->fk_carrito_id = $mi_carrito->id;
+        $linea_carrito->cantidad = $request->cantidad;
+        $linea_carrito->precio_parcial = $request->cantidad * $producto->precio;
+        $linea_carrito->save();
+        $mi_carrito->precio_total = $mi_carrito->precio_total + $linea_carrito->precio_parcial;
+        $mi_carrito->save();
+        return app()->make(Carrito_comprasController::class)->callAction('mostrarCarrito', []);
+    }
+
 
     public function comprarCarrito()
     {
@@ -60,9 +83,8 @@ class Carrito_comprasController extends Controller
         foreach ($mi_carrito->lineas_de_carrito as $linea) {
             $linea->delete();
         }
-
-
-
+        $mi_carrito->precio_total = 0;
+        $mi_carrito->save();
 
         return app()->make(Carrito_comprasController::class)->callAction('mostrarCarrito', []);
     }

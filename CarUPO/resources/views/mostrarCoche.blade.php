@@ -1,5 +1,5 @@
 @extends('plantilla')
-@section('titulo', 'Borrar coche')
+@section('titulo', 'Datos del producto')
 @section('contenido')
 <p class="h4">Detalle del coche</p>
 <table class="table m-3 rounded-2 bg-white">
@@ -40,17 +40,17 @@
         <td>{{ $coche->producto->precio }}</td>
     </tr>
 </table>
-<form action="{{ route('coche.borrar') }}" method="POST">
+<form action="{{ route('addToCarrito') }}" method="POST">
     @csrf
-    @method('DELETE')
-    <input type="hidden" name="id" value="{{ $coche->id }}">
+    <label>Cantidad: </label>
+    <input type="number" name="cantidad" value="0">
+    <input type="hidden" name="id" value="{{ $coche->fk_producto_id }}">
     <button class="btn btn-danger btn-block" type="submit">
-        Eliminar coche
+        Añadir al Carrito
     </button>
 </form>
 <div class="d-flex justify-content-end">
-    <form action="{{ route('mostrarProductos') }}" method="GET
-    ">
+    <form action="{{ route('mostrarProductos') }}" method="GET">
         @csrf
         <button class="btn btn-danger btn-block" type="submit">
             Atr&aacute;s

@@ -1,5 +1,5 @@
 @extends('plantilla')
-@section('titulo', 'Borrar accesorio')
+@section('titulo', 'Datos del producto')
 @section('contenido')
 <p class="h4">Detalle del accesorio</p>
 <table class="table m-3 rounded-2 bg-white">
@@ -16,12 +16,13 @@
         <td>{{ $accesorio->producto->precio }}</td>
     </tr>
 </table>
-<form action="{{ route('accesorio.borrar') }}" method="POST">
+<form action="{{ route('addToCarrito') }}" method="POST">
     @csrf
-    @method('DELETE')
-    <input type="hidden" name="id" value="{{ $accesorio->id }}">
+    <label>Cantidad: </label>
+    <input type="number" name="cantidad" value="0">
+    <input type="hidden" name="id" value="{{ $accesorio->fk_producto_id }}">
     <button class="btn btn-danger btn-block" type="submit">
-        Eliminar accesorio
+        Añadir al carrito
     </button>
 </form>
 <div class="d-flex justify-content-end">
