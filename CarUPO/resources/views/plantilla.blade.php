@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('titulo')</title>
+    <title>CarUPO</title>
     @vite(['resources/js/app.js', 'resources/css/app.scss'])
 </head>
 
@@ -17,28 +17,28 @@
 
     <header class="fixed-top" style="font-size: x-large;">
         <nav id="azul" class="navbar navbar-expand-md navbar-dark ">
-            <div class="container-fluid">
-                <a class="navbar-brand me-auto" href="{{route('inicio')}}"><img src={{ asset('logo.png') }} style="width: 100px;"></a>
+            <div class="container-fluid px-4">
+                <a class="navbar-brand me-auto" href="{{route('inicio')}}">
+                    <img src={{ asset('logo.png') }} alt="Logo" style="width: 100px; font-size: x-large;">         
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#elementos" aria-controls="elementos" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="elementos">
                     <ul class="navbar-nav">
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('inicio')}}">INICIO</a>
+                            <a class="nav-link text-white" href="{{route('inicio')}}">Mi perfil</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('crearAccesorio')}}">A</a>
+                            <a class="nav-link text-white" href="{{route('mostrarProductos')}}">Productos</a>
+                        </li>               
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('mostrarUsuarios')}}">Usuarios</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('crearCoche')}}">C</a>
+                            <a class="nav-link text-white" href="{{route('mostrarCarrito')}}">Carrito</a>
                         </li>
-                        <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarProductos')}}">P</a>
-                        </li>
-                        <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarUsuarios')}}">U</a>
-                        </li>
+                        
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item justify-content-center d-flex">
