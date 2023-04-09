@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Compra;
 
 class ComprasController extends Controller
@@ -12,6 +13,13 @@ class ComprasController extends Controller
         $compras = Compra::all();
         return view('compras', @compact('compras'));
     }
+
+    public function misCompras()
+    {
+        $compras = Auth::user()->compras;
+        return view('misCompras', @compact('compras'));
+    }
+
 
     public function actualizarEstado(Request $request)
     {

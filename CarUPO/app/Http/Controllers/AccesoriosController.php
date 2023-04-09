@@ -37,14 +37,6 @@ class AccesoriosController extends Controller
         return view('mostrarAccesorio', @compact('accesorio'));
     }
 
-
-    public function eliminarAccesorio(Request $request)
-    {
-        $accesorio = Accesorio::findOrFail($request->id);
-        $accesorio->delete();
-        return app()->make(ProductosController::class)->callAction('mostrarProductos', []);
-    }
-    /**
     public function verEditarAccesorio(Request $request)
     {
         $accesorio = Accesorio::findOrFail($request->id);
@@ -54,7 +46,7 @@ class AccesoriosController extends Controller
     public function editarAccesorio(Request $request)
     {
         $accesorio = Accesorio::findOrFail($request->id);
-        $producto = Producto::findOrFail($accesorio->fk_producto_id);
+        $producto = $accesorio->producto;
         $producto->descripcion = $request->descripcion;
         $producto->foto = $request->foto;
         $producto->precio = $request->precio;
@@ -63,5 +55,11 @@ class AccesoriosController extends Controller
         $accesorio->save();
         return app()->make(ProductosController::class)->callAction('mostrarProductos', []);
     }
-     */
+
+    public function eliminarAccesorio(Request $request)
+    {
+        $accesorio = Accesorio::findOrFail($request->id);
+        $accesorio->delete();
+        return app()->make(ProductosController::class)->callAction('mostrarProductos', []);
+    }
 }
