@@ -7,9 +7,22 @@
         <h1>Productos</h1>
     </div>
 
+
     @if ($productos->isEmpty())
     <div class="alert alert-info">
         <span>No hay productos disponibles</span>
+
+            </div>
+            <div class="card-footer justify-content-center d-flex">
+                <form action="{{ route('verCoche') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $producto->coche->id }}">
+                    <button class="btn btn-primary" type="submit">
+                        Ver producto
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
     @else
 
@@ -141,6 +154,7 @@
                     <a href="#" class="buttonP btn btn-primary">Ver producto</a>
                 </div>
             </div>
+
         </div>
         @endif
         @endforeach
@@ -155,9 +169,16 @@
                     <p class="card-text">{{ $producto->descripcion }}</p>
 
                 </div>
-                <div class="card-footer justify-content-center d-flex">
-                    <a href="#" class="buttonP btn btn-primary">Ver producto</a>
-                </div>
+
+            <div class="card-footer justify-content-center d-flex">
+                <form action="{{ route('verAccesorio') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $producto->accesorio->id }}">
+                    <button class="btn btn-primary" type="submit">
+                        Ver producto
+                    </button>
+                </form>
+
             </div>
         </div>
         @endif
@@ -165,6 +186,6 @@
     </div>
 
     @endif
-    @endif
+    @endforeach
 </div>
 @endsection

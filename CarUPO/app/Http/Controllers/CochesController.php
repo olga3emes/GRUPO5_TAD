@@ -54,6 +54,12 @@ class CochesController extends Controller
         return view('borrarCoche', @compact('coche'));
     }
 
+    public function verMostrarCoche(Request $request)
+    {
+        $coche = Coche::findOrFail($request->id);
+        return view('mostrarCoche', @compact('coche'));
+    }
+
     public function eliminarCoche(Request $request)
     {
         $coche = Coche::findOrFail($request->id);

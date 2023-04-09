@@ -31,6 +31,13 @@ class AccesoriosController extends Controller
         return view('borrarAccesorio', @compact('accesorio'));
     }
 
+    public function verMostrarAccesorio(Request $request)
+    {
+        $accesorio = Accesorio::findOrFail($request->id);
+        return view('mostrarAccesorio', @compact('accesorio'));
+    }
+
+
     public function eliminarAccesorio(Request $request)
     {
         $accesorio = Accesorio::findOrFail($request->id);

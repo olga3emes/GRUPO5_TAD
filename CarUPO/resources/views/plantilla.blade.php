@@ -30,6 +30,7 @@
                             <a class="nav-link text-white" href="{{route('inicio')}}">Mi perfil</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
+
                             <a class="nav-link text-white" href="{{route('mostrarProductos')}}">Productos</a>
                         </li>               
                         <li class="nav-item justify-content-center d-flex">
