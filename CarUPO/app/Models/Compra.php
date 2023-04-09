@@ -22,6 +22,6 @@ class Compra extends Model
      */
     public function lineas_de_compra()
     {
-        return $this->hasMany(LineaCompra::class, 'fk_compra_id');
+        return $this->hasMany(Linea_Compra::class, 'fk_compra_id');
     }
 }
