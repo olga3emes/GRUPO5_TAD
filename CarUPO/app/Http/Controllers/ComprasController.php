@@ -12,4 +12,25 @@ class ComprasController extends Controller
         $compras = Compra::all();
         return view('compras', @compact('compras'));
     }
+
+    public function actualizarEstado(Request $request)
+    {
+        $compra = Compra::findOrFail($request->id);
+        $cadena_estado = $compra->estado;
+
+        if ($cadena_estado == "Pendiente") {
+            $cadena_estado = "Aceptado";
+        } elseif ($cadena_estado == "Aceptado") {
+            $cadena_estado = "En Camino";
+        } elseif ($cadena_estado == "En Camino") {
+            $cadena_estado = "Entregado";
+        } elseif ($cadena_estado == "Entregado") {
+            $cadena_estado = "Cerrado";
+        }
+        $compra->estado = $cadena_estado;
+
+        $compra->save();
+
+        return app()->make(ComprasController::class)->callAction('mostrarCompras', []);
+    }
 }
