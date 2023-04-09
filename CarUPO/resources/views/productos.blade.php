@@ -53,7 +53,7 @@
                             </svg>
                         </button>
                     </form>
-                    <form action="{{ route('ver.coche.borrar') }}" method="POST">
+                    <form action="{{ route('ver.coche.editar') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id" value="{{ $producto->coche->id }}">
                         <button class="btn btn-outline-warning btn-block" type="submit">
@@ -109,7 +109,7 @@
                         </svg>
                     </button>
                 </form>
-                <form action="{{ route('ver.accesorio.borrar') }}" method="POST">
+                <form action="{{ route('ver.accesorio.editar') }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{ $producto->accesorio->id }}">
                     <button class="btn btn-warning btn-block" type="submit">
