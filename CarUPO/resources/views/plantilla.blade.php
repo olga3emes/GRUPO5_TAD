@@ -13,33 +13,18 @@
     @vite(['resources/js/app.js', 'resources/css/app.scss'])
 </head>
 
-<body class="vh-100 bg-light">
-
+<body class="vh-100 container-fluid g-0 bg-light">
     <header class="fixed-top" style="font-size: x-large;">
-        <nav id="azul" class="navbar navbar-expand-md navbar-dark ">
+        <nav id="azul" class="navbar navbar-expand-lg navbar-dark ">
             <div class="container-fluid px-4">
                 <a class="navbar-brand me-auto" href="{{route('inicio')}}">
-                    <img src={{ asset('logo.png') }} alt="Logo" style="width: 100px; font-size: x-large;">         
+                    <img src={{ asset('logo.png') }} alt="Logo" style="width: 100px; font-size: x-large;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#elementos" aria-controls="elementos" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="elementos">
                     <ul class="navbar-nav">
-                        <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('inicio')}}">Mi perfil</a>
-                        </li>
-                        <li class="nav-item justify-content-center d-flex">
-
-                            <a class="nav-link text-white" href="{{route('mostrarProductos')}}">Productos</a>
-                        </li>               
-                        <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarUsuarios')}}">Usuarios</a>
-                        </li>
-                        <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarCarrito')}}">Carrito</a>
-                        </li>
-                        
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item justify-content-center d-flex">
@@ -52,6 +37,29 @@
                         @endif
                         @else
                         @if (Auth::user()->email_verified_at)
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('inicio')}}">Mi perfil</a>
+                        </li>                        
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('mostrarProductos')}}">Productos</a>
+                        </li>
+
+                        @if (Auth::user()->isAdmin())
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('mostrarUsuarios')}}">Usuarios</a>
+                        </li>
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('mostrarCompras')}}">Compras</a>
+                        </li>
+
+                        @else
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('mostrarCarrito')}}">Carrito</a>
+                        </li>                        
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('misCompras')}}">Mis compras</a>
+                        </li>
+                        @endif
                     </ul>
                 </div>
                 <div class="dropdown justify-content-center d-flex">
@@ -78,7 +86,7 @@
         </div>
     </main>
     <footer id="azul" class="fixed-sticked">
-        <div class="container-fluid bg-grey p-4 py-3 text-white">
+        <div class=" bg-grey p-4 py-3 text-white">
             <p class="justify-content-center d-flex">Derechos reservados © 2023 GRUPO 5</p>
         </div>
     </footer>

@@ -86,6 +86,6 @@ class Carrito_comprasController extends Controller
         $mi_carrito->precio_total = 0;
         $mi_carrito->save();
 
-        return app()->make(Carrito_comprasController::class)->callAction('mostrarCarrito', []);
+        return app()->make(ComprasController::class)->callAction('misCompras', []);
     }
 }
