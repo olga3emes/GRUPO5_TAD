@@ -43,8 +43,15 @@
                 Crear nuevo coche
             </button>
         </div>
-
     </form>
+    <div class="d-flex justify-content-start mt-5">
+        <form action="{{ route('mostrarProductos') }}" method="GET">
+            @csrf
+            <button class="btn btn-danger btn-block" type="submit">
+                Atr&aacute;s
+            </button>
+        </form>
+    </div>
 </div>
 
 @endsection
