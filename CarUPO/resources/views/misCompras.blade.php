@@ -1,12 +1,16 @@
 @extends('plantilla')
-@section('titulo', 'INICIO')
 @section('contenido')
 
-@if ( sizeof($compras) < 1 ) <div class="alert alert-info">
-    <span>No hay compras</span>
+<div class="container-lg my-3 col-xs-10 col-md-8 col-lg-8 col-xl-8">
+    <div class="justify-content-center d-flex mb-3">
+        <h1>Historial de compra</h1>
     </div>
-    @else
-    <table class="table m-3 rounded-2 bg-white">
+    @if ( sizeof($compras) < 1 ) <div class="alert alert-info">
+        <span>No hay compras</span>
+</div>
+@else
+<div class="table-responsive">
+    <table class="table table-striped rounded-2 bg-white">
         <thead>
             <tr class="table-row  text-center align-middle">
                 <th>FECHA</th>
@@ -23,5 +27,7 @@
         </tr>
         @endforeach
     </table>
-    @endif
-    @endsection
+</div>
+@endif
+</div>
+@endsection
