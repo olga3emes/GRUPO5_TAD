@@ -29,6 +29,9 @@ use App\Http\Controllers\UsersController;
 Route::get('/', [PagesController::class, 'inicio'])->name('inicio');
 Route::get('/crearAccesorio', [PagesController::class, 'crearAccesorio'])->name('crearAccesorio');
 Route::get('/crearCoche', [PagesController::class, 'crearCoche'])->name('crearCoche');
+Route::get('/perfil', [PagesController::class, 'verPerfil'])->name('miPerfil');
+
+
 
 
 // AUTENTIFICACIÓN
@@ -98,4 +101,7 @@ Route::delete('/deleteToCarrito', [Carrito_comprasController::class, 'eliminarLi
 
 
 //USUARIOS
+
 Route::get('/usuarios', [UsersController::class, 'mostrarUsuarios'])->name('mostrarUsuarios');
+
+Route::put('/actualizaPerfil', [UsersController::class, 'actualizarPerfil'])->name('updatePerfil');
