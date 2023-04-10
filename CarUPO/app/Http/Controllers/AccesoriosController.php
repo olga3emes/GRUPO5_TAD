@@ -14,7 +14,9 @@ class AccesoriosController extends Controller
 
         $producto = new Producto();
         $producto->descripcion = $request->descripcion;
-        $producto->foto = $request->foto;
+        $nfoto = 'images/'.$_FILES['foto']['name'];
+        move_uploaded_file($_FILES['foto']['tmp_name'], $nfoto);
+        $producto->foto = $nfoto;
         $producto->precio = $request->precio;
         $producto->save();
         $accesorio = new Accesorio();
@@ -48,7 +50,11 @@ class AccesoriosController extends Controller
         $accesorio = Accesorio::findOrFail($request->id);
         $producto = $accesorio->producto;
         $producto->descripcion = $request->descripcion;
-        $producto->foto = $request->foto;
+        $nfoto = $_FILES['foto']['name'];
+        if ($nfoto != "") {
+            move_uploaded_file($_FILES['foto']['tmp_name'], 'images/'.$nfoto);
+            $producto->foto = 'images/'.$nfoto;
+        }
         $producto->precio = $request->precio;
         $producto->save();
         $accesorio->nombre = $request->nombre;

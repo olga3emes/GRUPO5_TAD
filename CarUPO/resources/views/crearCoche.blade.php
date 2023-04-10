@@ -5,8 +5,7 @@
     <div class="justify-content-center d-flex mb-3">
         <h1>Crear nuevo coche</h1>
     </div>
-    <form action="{{ route('addCoche') }}" method="POST">
-
+    <form action="{{ route('addCoche') }}" method="POST" enctype="multipart/form-data">
         @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
         <label for="marca" class="form-label">Marca</label>
         <input type="text" required name="marca" placeholder="Marca" class="form-control mb-2" autofocus>
@@ -31,9 +30,10 @@
         
         <label for="nPuertas" class="form-label">N&uacute;mero de puertas</label>
         <input type="number" required name="nPuertas" placeholder="N&uacute;mero de puertas del coche" step="1" class="form-control mb-2">
+
         
         <label for="foto" class="form-label">Foto</label>
-        <input type="text" required name="foto" placeholder="Foto" class="form-control mb-2">
+        <input type="file" required name="foto" class="form-control mb-2">
         
         <label for="precio" class="form-label">Precio</label>
         <input type="number" required name="precio" placeholder="Precio del coche" step="0.01" class="form-control mb-2">

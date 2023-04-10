@@ -6,17 +6,17 @@
     <div class="justify-content-center d-flex mb-3">
         <h1>Crear nuevo accesorio</h1>
     </div>
-    <form action="{{ route('addAccesorio') }}" method="POST">
+    <form action="{{ route('addAccesorio') }}" method="POST" enctype="multipart/form-data">
 
         @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" required name="nombre" placeholder="Nombre" class="form-control mb-2" autofocus>
-       
+   
         <label for="descripcion" class="form-label">Descripción</label>
         <textarea type="text" required name="descripcion" placeholder="Descripción" class="form-control mb-2"></textarea>
         
         <label for="foto" class="form-label">Foto</label>
-        <input type="text" required name="foto" placeholder="Foto" class="form-control mb-2">
+        <input type="file" required name="foto" class="form-control mb-2">
         
         <label for="precio" class="form-label">Precio</label>
         <input type="number" required name="precio" placeholder="Precio del accesorio" step="0.01" class="form-control mb-2">
