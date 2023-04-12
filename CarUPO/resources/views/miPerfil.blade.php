@@ -23,7 +23,7 @@
             <td>{{ Auth::user()->email }}</td>
         </tr>
         <tr class="table-row  text-center align-middle">
-            <td class="fw-bold">Telefono</td>
+            <td class="fw-bold">Tel&eacute;fono</td>
             <td>
                 <input type="text" name="phone" value="{{ Auth::user()->phone }}">
                 <input type="hidden" name="id" value="{{ Auth::user()->id }}">
