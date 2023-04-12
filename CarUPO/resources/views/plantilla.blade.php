@@ -38,8 +38,8 @@
                         @else
                         @if (Auth::user()->email_verified_at)
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('inicio')}}">Mi perfil</a>
-                        </li>                        
+                            <a class="nav-link text-white" href="{{route('miPerfil')}}">Mi perfil</a>
+                        </li>
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('mostrarProductos')}}">Productos</a>
                         </li>
@@ -55,7 +55,7 @@
                         @else
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('mostrarCarrito')}}">Carrito</a>
-                        </li>                        
+                        </li>
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('misCompras')}}">Mis compras</a>
                         </li>

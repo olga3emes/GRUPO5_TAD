@@ -5,11 +5,6 @@
     <div class="justify-content-center d-flex mb-3">
         <h1>Usuarios</h1>
     </div>
-    {{-- @if ($coches == '[]' && $accesorios == '[]')
-        <div class="alert alert-info">
-            <span>No hay productos disponibles</span>
-        </div>
-    @else --}}
     <div class="table-responsive">
         <table class="table table-striped rounded-2 bg-white">
             <thead>
@@ -32,6 +27,5 @@
             @endforeach
         </table>
     </div>
-    {{-- @endif --}}
 </div>
 @endsection
