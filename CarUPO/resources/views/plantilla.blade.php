@@ -51,13 +51,12 @@
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('mostrarCompras')}}">Compras</a>
                         </li>
-
-                        @else
-                        <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarCarrito')}}">Carrito</a>
-                        </li>
+                        @else                        
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('misCompras')}}">Mis compras</a>
+                        </li>
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('mostrarCarrito')}}">Carrito</a>
                         </li>
                         @endif
                     </ul>
