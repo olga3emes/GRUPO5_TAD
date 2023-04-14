@@ -11,7 +11,7 @@
     </p>
 
     <div class="justify-content-center d-flex mb-3">
-        <img src="{{$accesorio->producto->foto}}" class="card-img-top" alt="{{ $accesorio->nombre }}">
+        <img src="{{$accesorio->producto->foto}}" class="card-img-top h-50 w-50" alt="{{ $accesorio->nombre }}">
     </div>
     <div class="table-responsive">
         <table class="table table-striped rounded-2 bg-white">

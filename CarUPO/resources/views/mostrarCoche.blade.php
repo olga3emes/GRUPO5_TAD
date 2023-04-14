@@ -13,7 +13,7 @@
     </p>
 
     <div class="justify-content-center d-flex mb-3">
-        <img src="{{$coche->producto->foto}}" class="card-img-top" alt="{{ $coche->marca }} {{ $coche->modelo }} {{ $coche->color }}">
+        <img src="{{$coche->producto->foto}}" class="card-img-top h-50 w-50" alt="{{ $coche->marca }} {{ $coche->modelo }} {{ $coche->color }}">
     </div>
 
     <div class="table-responsive">
