@@ -52,7 +52,7 @@
             </tr>
         </table>
     </div>
-
+    @if (Auth::user()->isAdmin() == false)
     <div class="d-flex justify-content-center">
         <form action="{{ route('addToCarrito') }}" method="POST">
             @csrf
@@ -64,7 +64,7 @@
             </button>
         </form>
     </div>
-
+    @endif
     <div class="d-flex justify-content-start mt-5">
         <form action="{{ route('mostrarProductos') }}" method="GET">
             @csrf
