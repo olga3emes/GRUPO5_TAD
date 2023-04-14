@@ -36,7 +36,7 @@
                         </li>
                         @endif
                         @else
-                        @if (Auth::user()->email_verified_at)
+
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('miPerfil')}}">Mi perfil</a>
                         </li>
@@ -51,7 +51,7 @@
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('mostrarCompras')}}">Compras</a>
                         </li>
-                        @else                        
+                        @else
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('misCompras')}}">Mis compras</a>
                         </li>
@@ -72,7 +72,6 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-                    @endif
                 </div>
                 @endguest
 
