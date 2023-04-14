@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
-        # Creo unos 10 
         $this->call(UserSeeder::class);
         $this->call(Carrito_compraSeeder::class);
         $this->call(CocheSeeder::class);

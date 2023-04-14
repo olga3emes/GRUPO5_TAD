@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Carrito_compra;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -34,7 +35,8 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
+        // Create user
+        $user = User::create([
             'dni' => $input['dni'],
             'name' => $input['name'],
             'surname' => $input['surname'],
@@ -42,5 +44,11 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
+        // Create cart and assign it to the user
+        $cart = new Carrito_compra();
+        $cart->user()->associate($user);
+        $cart->save();
+        return $user;
     }
 }
