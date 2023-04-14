@@ -14,8 +14,15 @@ class ProductoSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i < 10; $i++) {
-            Producto::factory()->create();
-        }
+        // PARA GENERAR 10 PRODUCTOS CON DATOS ALEATORIOS
+        //for ($i = 1; $i < 10; $i++) {
+        //    Producto::factory()->create();
+        //}
+
+        Producto::factory()->create([
+            'descripcion' => 'Coche nuevo de 2022',
+            'foto' => '/images/lamborghini.png',
+            '56.25',
+        ]);
     }
 }

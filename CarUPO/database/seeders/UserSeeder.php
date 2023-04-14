@@ -16,7 +16,36 @@ class UserSeeder extends Seeder
     {
         // Creo 1 usuario admin con el email verificado
         User::factory()->create([
+            'name' => "admin",
+            'surname' => "",
+            'email' => "admin@hotmail.com",
+            'password' => bcrypt("admin"),
             'admin' => true,
+            'email_verified_at' => now(),
+        ]);
+
+        User::factory()->create([
+            'name' => "Alberto",
+            'surname' => "García Gonzalez",
+            'email' => "alberto@carupo.es",
+            'password' => bcrypt("1234"),
+            'admin' => false,
+            'email_verified_at' => now(),
+        ]);
+        User::factory()->create([
+            'name' => "Lidia",
+            'surname' => "Gant Pinar",
+            'email' => "lidia@carupo.es",
+            'password' => bcrypt("1234"),
+            'admin' => false,
+            'email_verified_at' => now(),
+        ]);
+        User::factory()->create([
+            'name' => "Alejandro",
+            'surname' => "Román Caballero",
+            'email' => "alejandro@carupo.es",
+            'password' => bcrypt("1234"),
+            'admin' => false,
             'email_verified_at' => now(),
         ]);
 

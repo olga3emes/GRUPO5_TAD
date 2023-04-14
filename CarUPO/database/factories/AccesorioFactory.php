@@ -14,7 +14,7 @@ class AccesorioFactory extends Factory
     {
         return [
             'nombre' => $this->faker->word(),
-            'fk_producto_id' => Producto::factory()->create()->id,
+            'fk_producto_id' => $this,
         ];
     }
 }

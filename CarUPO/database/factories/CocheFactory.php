@@ -20,7 +20,7 @@ class CocheFactory extends Factory
             'cilindrada' => $this->faker->randomFloat(2, 1, 6),
             'potencia' => $this->faker->randomFloat(2, 50, 500),
             'nPuertas' => $this->faker->randomElement([2, 3, 4]),
-            'fk_producto_id' => Producto::factory()->create()->id,
+            'fk_producto_id' => $this,
         ];
     }
 }
