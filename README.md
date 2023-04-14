@@ -18,12 +18,12 @@
 
 ## USUARIOS
 
-### Usuario administrador.
+### Usuario administrador
 
 * Usuario: admin@hotmail.com
 * Contraseña: admin
 
-### Usuario de pruebas.
+### Usuario de pruebas
 
 * Usuario: lidia@carupo.es
 * Contraseña: 1234
