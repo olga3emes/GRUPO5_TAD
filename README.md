@@ -23,7 +23,7 @@
 * Usuario: admin@hotmail.com
 * Contraseña: admin
 
-### Usuario de pruebas
+### Usuarios de pruebas
 
 * Usuario: lidia@carupo.es
 * Contraseña: 1234
