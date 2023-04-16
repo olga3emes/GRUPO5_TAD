@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Carrito_compra;
+use App\Models\Favoritos;
 use App\Models\Producto;
 
-class Linea_carrito extends Model
+class Favorito_producto extends Model
 {
     use HasFactory;
 
-    public function carritoCompra()
+    public function favorito()
     {
-        return $this->belongsTo(Carrito_Compra::class, 'fk_carrito_id');
+        return $this->belongsTo(Favoritos::class, 'fk_favorito_id');
     }
 
     public function producto()

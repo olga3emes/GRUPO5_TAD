@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('linea_compras', function (Blueprint $table) {
+        Schema::create('producto_categorias', function (Blueprint $table) {
             $table->id();
             $table->foreignId('fk_producto_id')->references('id')->on('productos')->onDelete('restrict');
-            $table->foreignId('fk_compra_id')->references('id')->on('compras')->onDelete('restrict');
-            $table->date('fecha_reserva');
-            $table->time('hora_reserva');
-            $table->integer('cantidad')->default(1);
-            $table->float('precio_parcial')->default(0);
+            $table->foreignId('fk_categoria_id')->references('id')->on('categorias')->onDelete('restrict');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linea_compras');
+        Schema::dropIfExists('producto_categorias');
     }
 };

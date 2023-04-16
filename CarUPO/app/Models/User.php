@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Compra;
+use App\Models\Carrito_compra;
+use App\Models\Favoritos;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -25,6 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'phone',
         'email',
         'password',
+        'language',
 
 
     ];
@@ -60,7 +64,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function carritoCompra()
     {
-        return $this->hasMany(CarritoCompra::class, 'fk_user');
+        return $this->hasMany(Carrito_compra::class, 'fk_user');
+    }
+
+    public function favoritos()
+    {
+        return $this->hasMany(Favoritos::class, 'fk_user');
     }
 
     public function isAdmin(): bool

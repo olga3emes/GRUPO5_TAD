@@ -5,25 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Producto;
-use App\Models\Compra;
+use App\Models\Categoria;
 
-class Linea_compra extends Model
+
+class Producto_categoria extends Model
 {
     use HasFactory;
 
-    /**
-     * Get the producto that owns the linea_compra.
-     */
     public function producto()
     {
         return $this->belongsTo(Producto::class, 'fk_producto_id');
     }
 
-    /**
-     * Get the compra that owns the linea_compra.
-     */
-    public function compra()
+    public function categoria()
     {
-        return $this->belongsTo(Compra::class, 'fk_compra_id');
+        return $this->belongsTo(Categoria::class, 'fk_categoria_id');
     }
 }

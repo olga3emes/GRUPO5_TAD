@@ -32,6 +32,10 @@
                     <input type="hidden" name="id" value="{{ Auth::user()->id }}">
                 </td>
             </tr>
+            <tr class="table-row  text-center align-middle">
+                <td class="fw-bold">Idioma</td>
+                <td>{{ Auth::user()->language }}</td>
+            </tr>
         </table>
         <div class="justify-content-center d-flex">
             <button class="buttonP btn btn-primary btn-block m-3" type="submit">

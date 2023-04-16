@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('fk_producto_id')->references('id')->on('productos')->onDelete('restrict');
             $table->foreignId('fk_carrito_id')->references('id')->on('carrito_compras')->onDelete('restrict');
+            $table->date('fecha_reserva');
+            $table->time('hora_reserva');
             $table->integer('cantidad')->default(1);
             $table->float('precio_parcial')->default(0);
             $table->timestamps();
