@@ -41,6 +41,24 @@
         </form>
 
     </div>
+    @if (Auth::user()->isAdmin() == false)
+    @if(DB::table('favoritos')
+    ->join('favorito_productos', 'favoritos.id', '=', 'favorito_productos.fk_favorito_id')
+    ->where('favorito_productos.fk_producto_id', '=', $accesorio->fk_producto_id)
+    ->where('favoritos.fk_user', '=', Auth::id())
+    ->exists())
+    <div class="d-flex justify-content-center">
+
+        <form action="{{ route('eliminarFavorito') }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" name="idf" value="{{ $accesorio->fk_producto_id }}">
+            <button class="buttonP btn btn-danger btn-block" type="submit">
+                Quitar de favoritos
+            </button>
+        </form>
+    </div>
+    @else
     <div class="d-flex justify-content-center">
 
         <form action="{{ route('addToFavoritos') }}" method="POST">
@@ -51,6 +69,8 @@
             </button>
         </form>
     </div>
+    @endif
+    @endif
     <div class="d-flex justify-content-center">
 
         <div class="d-flex justify-content-start mt-5">

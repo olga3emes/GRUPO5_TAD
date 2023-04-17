@@ -5,6 +5,16 @@
     <div class="justify-content-center d-flex mb-3">
         <h1>Mi perfil</h1>
     </div>
+    <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-start mt-5">
+            <form action="{{ route('misFavoritos') }}" method="GET">
+                @csrf
+                <button class="buttonP btn btn-primary btn-block m-3" type="submit">
+                    Mis Productos Favoritos
+                </button>
+            </form>
+        </div>
+    </div>
     <form action="{{ route('updatePerfil') }}" method="POST">
         @method('PUT')
         @csrf
@@ -43,5 +53,6 @@
             </button>
         </div>
     </form>
+
 </div>
 @endsection

@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Favorito_producto;
-
+use App\Models\Producto;
+use Illuminate\Support\Facades\DB;
 
 
 class Favoritos extends Model
