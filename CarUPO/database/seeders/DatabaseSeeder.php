@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 //use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Accesorio;
 use Illuminate\Database\Seeder;
 
 
@@ -19,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeeder::class);
         $this->call(Carrito_compraSeeder::class);
+        $this->call(FavoritosSeeder::class);
         $this->call(CocheSeeder::class);
         $this->call(AccesorioSeeder::class);
     }
