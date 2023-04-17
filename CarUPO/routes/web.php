@@ -8,6 +8,7 @@ use App\Http\Controllers\AccesoriosController;
 use App\Http\Controllers\Carrito_comprasController;
 use App\Http\Controllers\CochesController;
 use App\Http\Controllers\ComprasController;
+use App\Http\Controllers\FavoritosController;
 use App\Http\Controllers\Linea_carritosController;
 use App\Http\Controllers\Linea_comprasController;
 use App\Http\Controllers\ProductosController;
@@ -97,6 +98,9 @@ Route::post('/comprarCarrito', [Carrito_comprasController::class, 'comprarCarrit
 Route::post('/addAlCarrito', [Carrito_comprasController::class, 'addToCarrito'])->name('addToCarrito');
 
 Route::delete('/deleteToCarrito', [Carrito_comprasController::class, 'eliminarLineaCarrito'])->name('eliminarLineaCarrito');
+
+//FAVORITOS
+Route::post('/addFavorito', [FavoritosController::class, 'addToFavoritos'])->name('addToFavoritos');
 
 
 

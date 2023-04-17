@@ -39,14 +39,27 @@
                 Añadir al carrito
             </button>
         </form>
+
     </div>
-    <div class="d-flex justify-content-start mt-5">
-        <form action="{{ route('mostrarProductos') }}" method="GET">
+    <div class="d-flex justify-content-center">
+
+        <form action="{{ route('addToFavoritos') }}" method="POST">
             @csrf
-            <button class="btn btn-danger btn-block" type="submit">
-                Atr&aacute;s
+            <input type="hidden" name="idf" value="{{ $accesorio->fk_producto_id }}">
+            <button class="buttonP btn btn-danger btn-block" type="submit">
+                Añadir a favoritos
             </button>
         </form>
     </div>
-</div>
-@endsection
+    <div class="d-flex justify-content-center">
+
+        <div class="d-flex justify-content-start mt-5">
+            <form action="{{ route('mostrarProductos') }}" method="GET">
+                @csrf
+                <button class="btn btn-danger btn-block" type="submit">
+                    Atr&aacute;s
+                </button>
+            </form>
+        </div>
+    </div>
+    @endsection
