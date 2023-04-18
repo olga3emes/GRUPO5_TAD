@@ -27,36 +27,42 @@
                     <ul class="navbar-nav">
                         <!-- Authentication Links -->
                         @guest
+                            
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('messages.login') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('messages.registro') }}</a>
                         </li>
                         @endif
                         @else
-
+                            {{ app()->setLocale('es') }}
+                            @if (Auth::user()->language == 'Español')
+                                {{ app()->setLocale('es') }}
+                            @else
+                                {{ app()->setLocale('en') }}
+                            @endif
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('miPerfil')}}">Mi perfil</a>
+                            <a class="nav-link text-white" href="{{route('miPerfil')}}">{{ __('messages.perfil') }}</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarProductos')}}">Productos</a>
+                            <a class="nav-link text-white" href="{{route('mostrarProductos')}}">{{ __('messages.productos') }}</a>
                         </li>
 
                         @if (Auth::user()->isAdmin())
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarUsuarios')}}">Usuarios</a>
+                            <a class="nav-link text-white" href="{{route('mostrarUsuarios')}}">{{ __('messages.usuarios') }}</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarCompras')}}">Compras</a>
+                            <a class="nav-link text-white" href="{{route('mostrarCompras')}}">{{ __('messages.compras') }}</a>
                         </li>
                         @else
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('misCompras')}}">Mis compras</a>
+                            <a class="nav-link text-white" href="{{route('misCompras')}}">{{ __('messages.misCompras') }}</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarCarrito')}}">Carrito</a>
+                            <a class="nav-link text-white" href="{{route('mostrarCarrito')}}">{{ __('messages.carrito') }}</a>
                         </li>
                         @endif
                     </ul>
@@ -66,7 +72,7 @@
                         {{ Auth::user()->name }}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('messages.logout') }}</a>
                         </li>
                     </ul>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -85,7 +91,7 @@
     </main>
     <footer id="azul" class="fixed-sticked">
         <div class=" bg-grey p-4 py-3 text-white">
-            <p class="justify-content-center d-flex">Derechos reservados © 2023 GRUPO 5</p>
+            <p class="justify-content-center d-flex">{{ __('messages.derechos') }}</p>
         </div>
     </footer>
 </body>
