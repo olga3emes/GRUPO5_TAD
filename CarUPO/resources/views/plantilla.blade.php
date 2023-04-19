@@ -52,7 +52,10 @@
                             <a class="nav-link text-white" href="{{route('mostrarCompras')}}">Compras</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
-                            <a class="nav-link text-white" href="{{route('mostrarRankingFavoritos')}}">Ranking Favoritos</a>
+                            <a class="nav-link text-white" href="{{route('mostrarRankingFavoritos')}}">Favoritos</a>
+                        </li>
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('verCategorias')}}">Categorias</a>
                         </li>
                         @else
                         <li class="nav-item justify-content-center d-flex">

@@ -9,6 +9,7 @@ use App\Http\Controllers\Carrito_comprasController;
 use App\Http\Controllers\CochesController;
 use App\Http\Controllers\ComprasController;
 use App\Http\Controllers\FavoritosController;
+use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\Linea_carritosController;
 use App\Http\Controllers\Linea_comprasController;
 use App\Http\Controllers\ProductosController;
@@ -83,6 +84,14 @@ Route::get('/misFavoritos', [FavoritosController::class, 'misFavoritos'])->name(
 Route::post('/addFavorito', [FavoritosController::class, 'addToFavoritos'])->name('addToFavoritos');
 Route::delete('/deleteFavorito', [FavoritosController::class, 'removeToFavoritos'])->name('eliminarFavorito');
 Route::get('/rankingFavoritos', [FavoritosController::class, 'rankingFavoritos'])->name('mostrarRankingFavoritos');
+
+//CATEGORIAS
+Route::get('/categorias', [CategoriasController::class, 'mostrarCategorias'])->name('verCategorias');
+Route::post('/addCategoria', [CategoriasController::class, 'addToCategorias'])->name('addToCategorias');
+Route::delete('/removeCategoria', [CategoriasController::class, 'removeToCategorias'])->name('removeToCategorias');
+Route::put('/editCategoria', [CategoriasController::class, 'editarCategoria'])->name('editarCategoria');
+
+
 
 
 //USUARIOS
