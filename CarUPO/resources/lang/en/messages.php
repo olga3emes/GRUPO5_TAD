@@ -21,4 +21,8 @@ return [
         simply experience the adrenaline rush of driving a luxury car, our team is ready to help you plan an experience you'll never forget.
         plan an experience you'll never forget. Explore our website to find out more about our services and luxury car
         and luxury cars available for rent. Let's start the adventure!",
+    "correo" => "Email Address",
+    "pass" => "Password",
+    "remember" => "Remember password",
+    "olvidarPass" => "Forgot your password?",
 ];

@@ -21,4 +21,8 @@ return [
         simplemente experimentar la adrenalina de conducir un coche de lujo, nuestro equipo está listo para ayudarte a
         planificar una experiencia que nunca olvidarás. Explora nuestra página para descubrir más sobre nuestros servicios
         y coches de lujo disponibles para alquilar. ¡Empecemos la aventura!",
+    "correo" => "Correo electrónico",
+    "pass" => "Contraseña",
+    "remember" => "Recordar contraseña",
+    "olvidarPass" => "¿Has olvidado tu contraseña?",
 ];
