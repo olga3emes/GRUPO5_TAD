@@ -1,10 +1,9 @@
 @extends('plantilla')
-@section('titulo', 'INICIO')
 @section('contenido')
 
 <div class="container-lg my-3 col-10">
     <div class="justify-content-center d-flex mb-3">
-        <h1>Mis productos favoritos</h1>
+        <h1>Mis favoritos</h1>
     </div>
 
     @if ($productosFavoritos->isEmpty())
