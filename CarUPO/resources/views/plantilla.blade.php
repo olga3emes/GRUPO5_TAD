@@ -51,13 +51,16 @@
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('mostrarCompras')}}">Compras</a>
                         </li>
+                        <li class="nav-item justify-content-center d-flex">
+                            <a class="nav-link text-white" href="{{route('mostrarRankingFavoritos')}}">Ranking Favoritos</a>
+                        </li>
                         @else
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('misCompras')}}">Mis compras</a>
                         </li>
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{route('mostrarCarrito')}}">Carrito</a>
-                        </li>                        
+                        </li>
                         <li class="nav-item justify-content-center d-flex">
                             <a class="nav-link text-white" href="{{ route('misFavoritos') }}">Mis favoritos</a>
                         </li>

@@ -27,6 +27,17 @@ class FavoritosController extends Controller
         return view('/misFavoritos', @compact('productosFavoritos'));
     }
 
+
+
+    public function rankingFavoritos()
+    {
+        $productos = Producto::whereHas('favoritos_productos')->get();
+        $productos = $productos->sortBy(function ($producto) {
+            return count($producto->favoritos_productos) * -1;
+        });
+        return view('/favoritos', @compact('productos'));
+    }
+
     public function addToFavoritos(Request $request)
     {
 

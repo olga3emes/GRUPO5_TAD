@@ -82,6 +82,7 @@ Route::delete('/deleteToCarrito', [Carrito_comprasController::class, 'eliminarLi
 Route::get('/misFavoritos', [FavoritosController::class, 'misFavoritos'])->name('misFavoritos');
 Route::post('/addFavorito', [FavoritosController::class, 'addToFavoritos'])->name('addToFavoritos');
 Route::delete('/deleteFavorito', [FavoritosController::class, 'removeToFavoritos'])->name('eliminarFavorito');
+Route::get('/rankingFavoritos', [FavoritosController::class, 'rankingFavoritos'])->name('mostrarRankingFavoritos');
 
 
 //USUARIOS
