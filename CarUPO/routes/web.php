@@ -59,7 +59,7 @@ Route::delete('/delAccesorio', [AccesoriosController::class, 'eliminarAccesorio'
 Route::post('/addCoche', [CochesController::class, 'crearCoche'])->name('addCoche');
 Route::post('/coche', [CochesController::class, 'verMostrarCoche'])->name('verCoche');
 Route::post('/editarCoche', [CochesController::class, 'verEditarCoche'])->name('ver.coche.editar');
-Route::put('/updateCoche', [CochesController::class, 'editarCoche'])->name('editar.coche');
+Route::post('/updateCoche', [CochesController::class, 'editarCoche'])->name('editar.coche');
 Route::post('/borrarCoche', [CochesController::class, 'verBorrarCoche'])->name('ver.coche.borrar');
 Route::delete('/delCoche', [CochesController::class, 'eliminarCoche'])->name('coche.borrar');
 

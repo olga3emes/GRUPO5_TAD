@@ -9,32 +9,38 @@
         @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
         <label for="marca" class="form-label">Marca</label>
         <input type="text" required name="marca" placeholder="Marca" class="form-control mb-2" autofocus>
-        
+
         <label for="modelo" class="form-label">Modelo</label>
         <input type="text" required name="modelo" placeholder="Modelo" class="form-control mb-2">
-        
+
         <label for="descripcion" class="form-label">Descripción</label>
         <input type="text" required name="descripcion" placeholder="Descripción" class="form-control mb-2">
-        
+
         <label for="color" class="form-label">Color</label>
         <input type="text" required name="color" placeholder="Color" class="form-control mb-2">
-        
+
         <label for="combustible" class="form-label">Combustible</label>
         <input type="text" required name="combustible" placeholder="Combustible" class="form-control mb-2">
-        
+
         <label for="cilindrada" class="form-label">Cilindrada</label>
         <input type="number" required name="cilindrada" placeholder="Cilindrada del coche" step="0.01" class="form-control mb-2">
-        
+
         <label for="potencia" class="form-label">Potencia</label>
         <input type="number" required name="potencia" placeholder="Potencia del coche" step="0.01" class="form-control mb-2">
-        
+
         <label for="nPuertas" class="form-label">N&uacute;mero de puertas</label>
         <input type="number" required name="nPuertas" placeholder="N&uacute;mero de puertas del coche" step="1" class="form-control mb-2">
 
-        
+        <label for="categorias" class="form-label">Categoria</label>
+
+        <select name="categorias[]" class="form-control mb-2" multiple>
+            @foreach (DB::table('categorias')->get() as $categoria)
+            <option value="{{ $categoria->id }}" class="form-control mb-2">{{ $categoria->nombre }}</option>
+            @endforeach
+        </select>
         <label for="foto" class="form-label">Foto</label>
         <input type="file" required name="foto" class="form-control mb-2">
-        
+
         <label for="precio" class="form-label">Precio</label>
         <input type="number" required name="precio" placeholder="Precio del coche" step="0.01" class="form-control mb-2">
 

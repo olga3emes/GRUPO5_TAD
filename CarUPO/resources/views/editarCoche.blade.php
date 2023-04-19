@@ -6,7 +6,6 @@
         <h1>Editar {{ $coche->marca }} {{ $coche->modelo }}</h1>
     </div>
     <form action="{{ route('editar.coche') }}" method="POST" enctype="multipart/form-data">
-        @method('PUT')
         @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
         <label for="marca" class="form-label">Marca</label>
         <input type="text" required name="marca" value="{{ $coche->marca }}" placeholder="Marca" class="form-control mb-2" autofocus>
@@ -33,6 +32,21 @@
         <input type="number" required name="nPuertas" value="{{ $coche->nPuertas }}" placeholder="N&uacute;mero de puertas del coche" step="1" class="form-control mb-2">
 
 
+        <label for="categorias" class="form-label">Categoria</label>
+
+        <select name="categorias[]" class="form-control mb-2" multiple>
+            @foreach (DB::table('categorias')->get() as $categoria)
+            @if(DB::table('categorias')
+            ->join('producto_categorias', 'categorias.id', '=', 'producto_categorias.fk_categoria_id')
+            ->where('producto_categorias.fk_producto_id', '=', $coche->fk_producto_id)
+            ->exists()){
+            <option value="{{ $categoria->id }}" class="form-control mb-2" selected>{{ $categoria->nombre }}</option>
+            }
+            @else
+            <option value="{{ $categoria->id }}" class="form-control mb-2">{{ $categoria->nombre }}</option>
+            @endif
+            @endforeach
+        </select>
         <label for="foto" class="form-label">Foto</label>
         <input type="file" name="foto" class="form-control mb-2">
 

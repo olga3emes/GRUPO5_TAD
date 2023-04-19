@@ -11,13 +11,20 @@
         @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" required name="nombre" placeholder="Nombre" class="form-control mb-2" autofocus>
-   
+
         <label for="descripcion" class="form-label">Descripción</label>
         <textarea type="text" required name="descripcion" placeholder="Descripción" class="form-control mb-2"></textarea>
-        
+        <label for="categorias" class="form-label">Categoria</label>
+
+        <select name="categorias[]" class="form-control mb-2" multiple>
+            @foreach (DB::table('categorias')->get() as $categoria)
+            <option value="{{ $categoria->id }}" class="form-control mb-2">{{ $categoria->nombre }}</option>
+            @endforeach
+        </select>
+
         <label for="foto" class="form-label">Foto</label>
         <input type="file" required name="foto" class="form-control mb-2">
-        
+
         <label for="precio" class="form-label">Precio</label>
         <input type="number" required name="precio" placeholder="Precio del accesorio" step="0.01" class="form-control mb-2">
 
