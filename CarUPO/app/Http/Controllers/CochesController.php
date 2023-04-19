@@ -74,11 +74,9 @@ class CochesController extends Controller
         $producto->precio = $request->precio;
         $producto->save();
 
-        $categorias_usadas = Producto_categoria::where('fk_producto_id', '=', $request->id);
+        $categorias_usadas = Producto_categoria::where('fk_producto_id', '=', $producto->id)->get();
 
-        foreach ($categorias_usadas as $categoria) {
-            $categoria->delete();
-        }
+
 
         if ($request->categorias != null) {
             foreach ($request->categorias as $categoria) {
@@ -87,6 +85,9 @@ class CochesController extends Controller
                 $producto_categoria->fk_categoria_id = $categoria;
                 $producto_categoria->save();
             }
+        }
+        foreach ($categorias_usadas as $categoria) {
+            $categoria->delete();
         }
 
         $coche->marca = $request->marca;

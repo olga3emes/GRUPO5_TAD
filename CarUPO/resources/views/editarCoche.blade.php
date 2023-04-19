@@ -36,9 +36,7 @@
 
         <select name="categorias[]" class="form-control mb-2" multiple>
             @foreach (DB::table('categorias')->get() as $categoria)
-            @if(DB::table('categorias')
-            ->join('producto_categorias', 'categorias.id', '=', 'producto_categorias.fk_categoria_id')
-            ->where('producto_categorias.fk_producto_id', '=', $coche->fk_producto_id)
+            @if(DB::table('producto_categorias')->where('fk_producto_id', '=', $coche->fk_producto_id)->where('fk_categoria_id', '=', $categoria->id)
             ->exists()){
             <option value="{{ $categoria->id }}" class="form-control mb-2" selected>{{ $categoria->nombre }}</option>
             }

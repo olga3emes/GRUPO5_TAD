@@ -12,13 +12,25 @@
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" required name="nombre" value="{{ $accesorio->nombre }}" placeholder="Nombre" class="form-control mb-2" autofocus>
 
-        
+
         <label for="descripcion" class="form-label">Descripción</label>
         <textarea type="text" required name="descripcion" placeholder="Descripción" class="form-control mb-2">{{ $accesorio->producto->descripcion }}</textarea>
-        
+        <label for="categorias" class="form-label">Categoria</label>
+
+        <select name="categorias[]" class="form-control mb-2" multiple>
+            @foreach (DB::table('categorias')->get() as $categoria)
+            @if(DB::table('producto_categorias')->where('fk_producto_id', '=', $accesorio->fk_producto_id)->where('fk_categoria_id', '=', $categoria->id)
+            ->exists()){
+            <option value="{{ $categoria->id }}" class="form-control mb-2" selected>{{ $categoria->nombre }}</option>
+            }
+            @else
+            <option value="{{ $categoria->id }}" class="form-control mb-2">{{ $categoria->nombre }}</option>
+            @endif
+            @endforeach
+        </select>
         <label for="foto" class="form-label">Foto</label>
         <input type="file" name="foto" class="form-control mb-2">
-        
+
         <label for="precio" class="form-label">Precio</label>
 
         <input type="number" required name="precio" value="{{ $accesorio->producto->precio }}" placeholder="Precio del accesorio" step="0.01" class="form-control mb-2">
