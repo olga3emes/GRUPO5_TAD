@@ -29,14 +29,24 @@ class FavoritosController extends Controller
 
     public function addToFavoritos(Request $request)
     {
+
         $id = Auth::user()->id;
-        $mi_favoritos = Favoritos::findOrFail($id);
-        $favorito_producto = new Favorito_producto();
         $producto = Producto::findOrFail($request->idf);
-        $favorito_producto->fk_producto_id = $producto->id;
-        $favorito_producto->fk_favorito_id = $mi_favoritos->id;
-        $favorito_producto->save();
-        $mi_favoritos->save();
+        $es_favorito = DB::table('favoritos')
+            ->join('favorito_productos', 'favoritos.id', '=', 'favorito_productos.fk_favorito_id')
+            ->where('favorito_productos.fk_producto_id', '=', $producto->id)
+            ->where('favoritos.fk_user', '=', Auth::id())
+            ->exists();
+
+        if (!$es_favorito) {
+            $mi_favoritos = Favoritos::findOrFail($id);
+            $favorito_producto = new Favorito_producto();
+            $favorito_producto->fk_producto_id = $producto->id;
+            $favorito_producto->fk_favorito_id = $mi_favoritos->id;
+            $favorito_producto->save();
+            $mi_favoritos->save();
+        }
+
         if ($producto->coche != null) {
             $coche = $producto->coche;
             return view('mostrarCoche', @compact('coche'));
@@ -49,11 +59,18 @@ class FavoritosController extends Controller
     public function removeToFavoritos(Request $request)
     {
         $id = Auth::user()->id;
-        $mi_favoritos = Favoritos::findOrFail($id);
         $producto = Producto::findOrFail($request->idf);
+        $es_favorito = DB::table('favoritos')
+            ->join('favorito_productos', 'favoritos.id', '=', 'favorito_productos.fk_favorito_id')
+            ->where('favorito_productos.fk_producto_id', '=', $producto->id)
+            ->where('favoritos.fk_user', '=', Auth::id())
+            ->exists();
 
-        $favorito_producto = Favorito_producto::where('fk_producto_id', '=', $producto->id)->where('fk_favorito_id', '=', $mi_favoritos->id)->first();
-        $favorito_producto->delete();
+        if ($es_favorito) {
+            $mi_favoritos = Favoritos::findOrFail($id);
+            $favorito_producto = Favorito_producto::where('fk_producto_id', '=', $producto->id)->where('fk_favorito_id', '=', $mi_favoritos->id)->first();
+            $favorito_producto->delete();
+        }
         if ($producto->coche != null) {
             $coche = $producto->coche;
             return view('mostrarCoche', @compact('coche'));
